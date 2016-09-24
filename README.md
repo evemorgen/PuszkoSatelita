@@ -10,6 +10,6 @@
 
 And remember, before asking     
 <p align="center">
-    <img src="http://www.comicsandmemes.com/wp-content/uploads/WTF-memes-google-it.jpga" />
+    <img src="http://www.comicsandmemes.com/wp-content/uploads/WTF-memes-google-it.jpg" />
 </p>
 
