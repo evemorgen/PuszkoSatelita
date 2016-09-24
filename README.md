@@ -9,5 +9,7 @@
     - folder *elektronika* służy do trzymania schematów eagle dla projektu, ewentualnie innych dziwnych rzeczy związanych z elektroniką.
 
 And remember, before asking     
--> ![alt text](http://www.comicsandmemes.com/wp-content/uploads/WTF-memes-google-it.jpga) <-
+<p align="center">
+    <img src="http://www.comicsandmemes.com/wp-content/uploads/WTF-memes-google-it.jpga" />
+</p>
 
