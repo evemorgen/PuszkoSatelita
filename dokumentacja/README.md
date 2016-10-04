@@ -5,3 +5,7 @@ W późniejszym czasie należy uzupełniać readme o dodatkowe sekcje, np opis p
 1. prezentacje_esero
     - Tutaj znajdują się przezentacje pokazane na warsztatach dla nauczycieli
 
+## Testy Integracyjne ##
+- zrzucenie z wysokości
+- typy materiałów
+- łączność radiowa
