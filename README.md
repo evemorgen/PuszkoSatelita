@@ -8,8 +8,13 @@
 3. elektronika
     - folder *elektronika* służy do trzymania schematów eagle dla projektu, ewentualnie innych dziwnych rzeczy związanych z elektroniką.
 
+## Media społecznościowe ##
+  ### [Facebook](https://www.facebook.com/JJCanSatTeam/) ###
+
+  ### [WordPress](https://jjcansat.wordpress.com) ###
+
+
 And remember, before asking     
 <p align="center">
     <img src="http://www.comicsandmemes.com/wp-content/uploads/WTF-memes-google-it.jpg" />
 </p>
-
