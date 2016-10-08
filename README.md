@@ -9,9 +9,9 @@
     - folder *elektronika* służy do trzymania schematów eagle dla projektu, ewentualnie innych dziwnych rzeczy związanych z elektroniką.
 
 ## Media społecznościowe ##
-  [Facebook](https://www.facebook.com/JJCanSatTeam/)
+  * [Facebook](https://www.facebook.com/JJCanSatTeam/)
 
-  [WordPress](https://jjcansat.wordpress.com)
+  * [WordPress](https://jjcansat.wordpress.com)
 
 
 And remember, before asking     
