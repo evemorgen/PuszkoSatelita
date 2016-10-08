@@ -1,7 +1,7 @@
 # To jest repo w którym trzymamy wszystkie pliki zwiącane z projektem CanSat #
 
 ## Struktura organizacyjna: ##
-1. dokumentacjia
+1. dokumentacja
     - folder *dokumentacja* służy do trzymania dokumentacji projektu, kolejnych jej iteracji, oraz ostatecznych wersji na PDR, CDE, FDR
 2. code
     - folder *code* służy do trzymania jakiegokolwiek kodu, czy to arduino czy coś co będzie obrabiać dane potem itd.
@@ -9,9 +9,9 @@
     - folder *elektronika* służy do trzymania schematów eagle dla projektu, ewentualnie innych dziwnych rzeczy związanych z elektroniką.
 
 ## Media społecznościowe ##
-  ### [Facebook](https://www.facebook.com/JJCanSatTeam/) ###
+  [Facebook](https://www.facebook.com/JJCanSatTeam/)
 
-  ### [WordPress](https://jjcansat.wordpress.com) ###
+  [WordPress](https://jjcansat.wordpress.com)
 
 
 And remember, before asking     
