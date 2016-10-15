@@ -5,4 +5,4 @@
 4. Tymoteusz Chmielecki - software pokładowy
 5. Patryk Gałczyński - opiekun zespołu, wsparcie software'u
 6. Łukasz Stanik - Fizyka, obliczenia
-7. Outreach i dokumentacja
+7. Paweł Biłko - Outreach i dokumentacja
