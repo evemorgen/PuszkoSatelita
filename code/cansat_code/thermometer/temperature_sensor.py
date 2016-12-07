@@ -1,5 +1,6 @@
 # import RPi.GPIO as GPIO
 from time import sleep
+from random import randint as r
 # import Adafruit_DHT
 
 
@@ -9,6 +10,7 @@ class TemperatureSensor():
         self.DEBUG = 1
         self.RCpin = 24
         self.DHTpin = 23
+        self.read_index = 0
         try:
             self.myDelay = int(delay)
         except Exception:
@@ -21,17 +23,10 @@ class TemperatureSensor():
         GPIO.setup(self.RCpin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
     def getSensorData(self):
-        return ('jj', 'cansat')
-        RHW, TW = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, self.DHTpin)
-        return str(RHW, TW)
-
-    def RCtime(self):
-        return '69'
-        LT = 0
-
-        if GPIO.input(self.RCpin) is True:
-            LT += 1
-        return str(LT)
+        self.read_index += 1
+        return (str(r(10, 100)), str(r(10, 100)))
+        hum, temp = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, self.DHTpin)
+        return str(temp, hum)
 
     def loop(self):
         print("DHT11 test program by JJCanSat team")
@@ -39,14 +34,11 @@ class TemperatureSensor():
 
         while True:
             try:
-                print('chuj')
-                RHW, TW = self.getSensorData()
-                print('fuck'+ RHW, TW)
-                LT = self.RCtime()
-                print()
-                print(RHW + ' -- ' + TW + ' -- ' + LT)
+                hum, temp = self.getSensorData()
+                print(str(self.read_index) + ':\t' + temp + '*C | ' + hum + '%')
                 sleep(self.myDelay)
 
-            except:
+            except Exception:
                 print('Exiting. cunt')
+                raise Exception
                 break
