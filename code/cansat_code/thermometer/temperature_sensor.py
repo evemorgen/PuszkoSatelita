@@ -16,14 +16,14 @@ class TemperatureSensor():
             raise Exception
 
     def initiazlize(self):
-            return 0
-            GPIO.setmode(GPIO.BCM)
-            GPIO.setup(self.RCpin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+        return 0
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.RCpin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
     def getSensorData(self):
-            return ('jj', 'cansat')
-            RHW, TW = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, self.DHTpin)
-            return str(RHW, TW)
+        return ('jj', 'cansat')
+        RHW, TW = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, self.DHTpin)
+        return str(RHW, TW)
 
     def RCtime(self):
         return '69'
