@@ -1,0 +1,236 @@
+object MainForm: TMainForm
+  Left = 304
+  Height = 554
+  Top = 88
+  Width = 939
+  Caption = 'Mission Control'
+  ClientHeight = 554
+  ClientWidth = 939
+  Color = 1907997
+  Font.Color = clWhite
+  OnCreate = FormCreate
+  LCLVersion = '1.6.0.4'
+  WindowState = wsMaximized
+  object SerialPortsComboBox: TComboBox
+    Left = 16
+    Height = 23
+    Top = 8
+    Width = 160
+    ItemHeight = 15
+    Style = csDropDownList
+    TabOrder = 0
+  end
+  object ConnBtn: TBitBtn
+    AnchorSideLeft.Control = SerialPortsComboBox
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = SerialPortsComboBox
+    AnchorSideTop.Side = asrCenter
+    Left = 180
+    Height = 23
+    Top = 8
+    Width = 168
+    BorderSpacing.Around = 4
+    Caption = 'Connect'
+    Font.Color = clBlack
+    OnClick = ConnBtnClick
+    ParentFont = False
+    TabOrder = 1
+  end
+  object ReadInterval: TSpinEdit
+    AnchorSideTop.Control = SerialPortsComboBox
+    AnchorSideTop.Side = asrBottom
+    Left = 16
+    Height = 23
+    Top = 35
+    Width = 160
+    BorderSpacing.Around = 4
+    Font.Color = clBlack
+    MaxValue = 10000
+    MinValue = 10
+    OnChange = ReadIntervalChange
+    ParentFont = False
+    TabOrder = 2
+    Value = 100
+  end
+  object COMIntervalLabel: TLabel
+    AnchorSideLeft.Control = ReadInterval
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = ReadInterval
+    Left = 180
+    Height = 15
+    Top = 39
+    Width = 116
+    BorderSpacing.Around = 4
+    Caption = 'COM Reading interval'
+    ParentColor = False
+  end
+  object InputConsole: TMemo
+    AnchorSideTop.Control = ReadInterval
+    AnchorSideTop.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 16
+    Height = 480
+    Top = 66
+    Width = 332
+    Anchors = [akTop, akLeft, akBottom]
+    BorderSpacing.Around = 8
+    BorderStyle = bsNone
+    Color = 1907997
+    Font.CharSet = EASTEUROPE_CHARSET
+    Font.Color = 8454016
+    Font.Height = -12
+    Font.Name = 'Source Code Pro'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 3
+  end
+  object TemperatureChart: TChart
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 360
+    Height = 339
+    Top = 66
+    Width = 579
+    AxisList = <    
+      item
+        Grid.Color = clWhite
+        Grid.Style = psSolid
+        TickColor = clWhite
+        Marks.LabelFont.Color = clWhite
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+      end    
+      item
+        Grid.Color = clWhite
+        Grid.Style = psSolid
+        TickColor = clWhite
+        Alignment = calBottom
+        Marks.LabelFont.Color = clWhite
+        Marks.Frame.Color = clGreen
+        Minors = <>
+        Title.LabelFont.Color = clGreen
+      end>
+    BackColor = 1907997
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Frame.Color = clWhite
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    Anchors = [akTop, akLeft, akRight]
+    ParentColor = True
+    object Temperature: TLineSeries
+      LinePen.Color = clYellow
+      LinePen.Width = 10
+    end
+  end
+  object ConnStatus: TShape
+    AnchorSideLeft.Control = ConnBtn
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = ConnBtn
+    AnchorSideTop.Side = asrCenter
+    Left = 352
+    Height = 16
+    Top = 11
+    Width = 16
+    Brush.Color = clRed
+    Pen.Color = clRed
+    Shape = stCircle
+  end
+  object PacksCounter: TLabel
+    AnchorSideLeft.Control = ConnStatus
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = ConnStatus
+    AnchorSideTop.Side = asrCenter
+    Left = 372
+    Height = 15
+    Top = 12
+    Width = 73
+    BorderSpacing.Around = 4
+    Caption = 'PacksCounter'
+    ParentColor = False
+  end
+  object CurrFrame: TLabel
+    AnchorSideLeft.Control = PacksCounter
+    AnchorSideTop.Control = PacksCounter
+    AnchorSideTop.Side = asrBottom
+    Left = 372
+    Height = 15
+    Top = 31
+    Width = 56
+    BorderSpacing.Top = 4
+    Caption = 'CurrFrame'
+    ParentColor = False
+  end
+  object WindChart: TChart
+    AnchorSideLeft.Control = TemperatureChart
+    AnchorSideTop.Control = TemperatureChart
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = TemperatureChart
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 360
+    Height = 149
+    Top = 405
+    Width = 579
+    AxisList = <    
+      item
+        Grid.Color = clWhite
+        Grid.Style = psSolid
+        TickColor = clWhite
+        Marks.LabelFont.Color = clWhite
+        Minors = <>
+        Title.LabelFont.Orientation = 900
+      end    
+      item
+        Grid.Color = clWhite
+        Grid.Style = psSolid
+        TickColor = clWhite
+        Alignment = calBottom
+        Marks.LabelFont.Color = clWhite
+        Marks.Visible = False
+        Marks.Frame.Color = clGreen
+        Minors = <>
+        Title.LabelFont.Color = clGreen
+      end>
+    BackColor = 1907997
+    Foot.Brush.Color = clBtnFace
+    Foot.Font.Color = clBlue
+    Frame.Color = clWhite
+    Title.Brush.Color = clBtnFace
+    Title.Font.Color = clBlue
+    Title.Text.Strings = (
+      'TAChart'
+    )
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ParentColor = True
+    object Wind: TLineSeries
+      LinePen.Color = clRed
+      LinePen.Width = 10
+    end
+  end
+  object SerialPort: TSdpoSerial
+    Active = False
+    BaudRate = br__9600
+    AltBaudRate = 0
+    DataBits = db8bits
+    Parity = pNone
+    FlowControl = fcNone
+    StopBits = sbOne
+    Device = 'COM3'
+    left = 576
+    top = 8
+  end
+  object COMReader: TTimer
+    Enabled = False
+    Interval = 100
+    OnTimer = COMReaderTimer
+    left = 488
+    top = 8
+  end
+end

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="E:\lazarus\fpc\3.0.0\bin\x86_64-win64\fpc.exe" Date="1213096608"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -WG -l -vewnhibq -FiC:\Users\Karol\Desktop\CanSat\MC_JJ_Win\lib\x86_64-win64 -FuE:\lazarus\components\tachart\lib\x86_64-win64\win32 -FuE:\lazarus\components\ideintf\units\x86_64-win64\win32 &quot;-FuC:\Users\Karol\Desktop\002_Lazarus servo control\002_Lazarus servo control\SdpoSerial lazarus component\lib\x86_64-win64&quot; -FuE:\lazarus\components\lazcontrols\lib\x86_64-win64\win32 -FuE:\lazarus\lcl\units\x86_64-win64\win32 -FuE:\lazarus\lcl\units\x86_64-win64 -FuE:\lazarus\components\lazutils\lib\x86_64-win64 -FuE:\lazarus\packager\units\x86_64-win64 -FuC:\Users\Karol\Desktop\CanSat\MC_JJ_Win\ -FUC:\Users\Karol\Desktop\CanSat\MC_JJ_Win\lib\x86_64-win64\ -dUseCThreads -dLCL -dLCLwin32 MC_JJ_Win.lpr"/>
+</CONFIG>
