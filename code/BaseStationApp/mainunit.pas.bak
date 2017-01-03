@@ -6,30 +6,61 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, Forms, Controls, Graphics,
-  Dialogs, StdCtrls, Buttons, ExtCtrls, Spin, SdpoSerial, SerialList, DataUnit;
+  Dialogs, StdCtrls, Buttons, ExtCtrls, Spin, Menus, SdpoSerial, SerialList,
+  DataUnit;
 procedure ProccessData;
 type
 
   { TMainForm }
 
   TMainForm = class(TForm)
+    AltitudePanel: TPanel;
+    CenterPanel: TPanel;
+    ChartSection: TPanel;
     COMIntervalLabel: TLabel;
     COMReader: TTimer;
-    ConnBtn: TBitBtn;
     ConnStatus: TShape;
+    ConsolePanel: TPanel;
     CurrFrame: TLabel;
+    GPSPanel: TPanel;
+    HumidityPanel: TPanel;
+    LeftPanel: TPanel;
+    MainContainer: TPanel;
+    MainMenu: TMainMenu;
+    FileMenu: TMenuItem;
+    ConnMenu: TMenuItem;
+    COMBtn: TMenuItem;
+    ConnNameBtn: TMenuItem;
+    ConnSwitch: TMenuItem;
+    ConnInterBtn: TMenuItem;
+    ConnStatBtn: TMenuItem;
+    PressurePanel: TPanel;
+    QuitBtn: TMenuItem;
+    RightPanel: TPanel;
+    RotationPanel: TPanel;
+    SaveBtn: TMenuItem;
+    OpenBtn: TMenuItem;
+    ChartExportBtn: TMenuItem;
     PacksCounter: TLabel;
     Temperature: TLineSeries;
     InputConsole: TMemo;
     ReadInterval: TSpinEdit;
     SerialPortsComboBox: TComboBox;
     SerialPort: TSdpoSerial;
+    TemperaturePanel: TPanel;
+    TopStatusBar: TPanel;
     Wind: TLineSeries;
     TemperatureChart: TChart;
     WindChart: TChart;
+    WindPanel: TPanel;
     procedure COMReaderTimer(Sender: TObject);
     procedure ConnBtnClick(Sender: TObject);
+    procedure ConnInterBtnClick(Sender: TObject);
+    procedure ConnSwitchClick(Sender: TObject);
+    procedure FileMenuClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure InputConsoleChange(Sender: TObject);
+    procedure QuitBtnClick(Sender: TObject);
     procedure ReadIntervalChange(Sender: TObject);
   private
     { private declarations }
@@ -59,6 +90,17 @@ begin
   ProcessedLine:= 0;
   ReceivedData:='No data to display';
   DataSource:= TDataSource.Create;
+  FileMenu.Visible:=true;
+end;
+
+procedure TMainForm.InputConsoleChange(Sender: TObject);
+begin
+
+end;
+
+procedure TMainForm.QuitBtnClick(Sender: TObject);
+begin
+  Application.Terminate;
 end;
 
 procedure TMainForm.ReadIntervalChange(Sender: TObject);
@@ -68,6 +110,16 @@ end;
 
 procedure TMainForm.ConnBtnClick(Sender: TObject);
 begin
+
+end;
+
+procedure TMainForm.ConnInterBtnClick(Sender: TObject);
+begin
+
+end;
+
+procedure TMainForm.ConnSwitchClick(Sender: TObject);
+begin
   SerialPort.Device:= SerialPortsComboBox.Items[SerialPortsComboBox.ItemIndex];
   SerialPort.Active:= true;
   COMReader.Enabled:=true;
@@ -75,6 +127,12 @@ begin
     Brush.Color:= clGreen;
     Pen.Color:= clGreen;
   end;
+  ConnSwitch.Caption:='Disconnect (not yet operable)';
+end;
+
+procedure TMainForm.FileMenuClick(Sender: TObject);
+begin
+
 end;
 
 procedure TMainForm.COMReaderTimer(Sender: TObject);
