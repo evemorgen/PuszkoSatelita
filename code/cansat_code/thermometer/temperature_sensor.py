@@ -16,19 +16,15 @@ class TemperatureSensor():
             raise Exception
 
     def initiazlize(self):
-        return 0
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.RCpin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
     def getSensorData(self):
-        return ('jj', 'cansat')
         RHW, TW = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, self.DHTpin)
         return str(RHW, TW)
 
     def RCtime(self):
-        return '69'
         LT = 0
-
         if GPIO.input(self.RCpin) is True:
             LT += 1
         return str(LT)
@@ -39,14 +35,13 @@ class TemperatureSensor():
 
         while True:
             try:
-                print('chuj')
                 RHW, TW = self.getSensorData()
-                print('fuck'+ RHW, TW)
+                print(RHW, TW)
                 LT = self.RCtime()
                 print()
                 print(RHW + ' -- ' + TW + ' -- ' + LT)
                 sleep(self.myDelay)
 
             except:
-                print('Exiting. cunt')
+                print('Exiting.')
                 break
