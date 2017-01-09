@@ -1,47 +1,39 @@
-# import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 from time import sleep
-# import Adafruit_DHT
+import logging
 
 
 class TemperatureSensor():
 
     def __init__(self, delay):
-        self.DEBUG = 1
-        self.RCpin = 24
         self.DHTpin = 23
-        try:
-            self.myDelay = int(delay)
-        except Exception:
-            print("Input a proper value <int>.")
-            raise Exception
+        logging.basicConfig(format='%(asctime)s --> %(message)s', filename='test.log', level=logging.DEBUG)
+        logging.debug('\nSTARTING TEST')
+        if delay is not int:
+            logging.exception('Input a proper value <int>.')
+            quit()
 
-    def initiazlize(self):
+    def __initiazlize(self):
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(self.RCpin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+        GPIO.setup(self.DHTpin, GPIO.IN)
+        logging.info('Initialized pin')
 
-    def getSensorData(self):
-        RHW, TW = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, self.DHTpin)
-        return str(RHW, TW)
-
-    def RCtime(self):
-        LT = 0
-        if GPIO.input(self.RCpin) is True:
-            LT += 1
-        return str(LT)
+    def __get_sensor_data(self):
+        self.__initiazlize()
+        data = GPIO.input(self.DHTpin)
+        logging.info('Got data from pin')
+        return data
 
     def loop(self):
-        print("DHT11 test program by JJCanSat team")
-        print('            Starting...')
-
+        logging.info('Starting loop')
+        loop_counter = 0
         while True:
             try:
-                RHW, TW = self.getSensorData()
-                print(RHW, TW)
-                LT = self.RCtime()
-                print()
-                print(RHW + ' -- ' + TW + ' -- ' + LT)
+                loop_counter += 1
+                data = self.__get_sensor_data()
+                logging.info('{} - data: {}'.format(loop_counter, data))
                 sleep(self.myDelay)
 
             except:
-                print('Exiting.')
+                logging.exception('Quitting')
                 break
