@@ -9,7 +9,9 @@ class TemperatureSensor():
         self.DHTpin = 23
         logging.basicConfig(format='%(asctime)s --> %(message)s', level=logging.DEBUG)  # ,  filename='test.log')
         logging.debug('\nSTARTING TEST')
-        if delay is not int:
+        try:
+            delay = int(delay)
+        except:
             logging.warning('Input a proper value <int>.')
             quit()
 
