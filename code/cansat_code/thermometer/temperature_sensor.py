@@ -7,10 +7,11 @@ class TemperatureSensor():
 
     def __init__(self, delay):
         self.DHTpin = 23
+        self.delay = delay
         logging.basicConfig(format='%(asctime)s --> %(message)s', level=logging.DEBUG)  # ,  filename='test.log')
         logging.debug('\nSTARTING TEST')
         try:
-            delay = int(delay)
+            self.delay = int(self.delay)
         except:
             logging.warning('Input a proper value <int>.')
             quit()
@@ -34,7 +35,7 @@ class TemperatureSensor():
                 loop_counter += 1
                 data = self.__get_sensor_data()
                 logging.info('{} - data: {}'.format(loop_counter, data))
-                sleep(self.myDelay)
+                sleep(self.delay)
 
             except:
                 logging.exception('Quitting')
