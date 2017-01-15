@@ -15,6 +15,7 @@ fn main() {
 fn poll(pin_num: u64) -> sysfs_gpio::Result<()> {
     let input = Pin::new(pin_num);
     input.with_exported(|| {
+        sleep(Duration::from_millis(80));
         try!(input.set_direction(Direction::In));
         let mut prev_val: u8 = 255;
         loop {
