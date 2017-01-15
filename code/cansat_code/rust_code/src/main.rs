@@ -2,7 +2,7 @@ extern crate sysfs_gpio;
 
 use sysfs_gpio::{Direction, Pin};
 use std::env;
-use std::thread::sleep_ms;
+use std::thread::sleep;
 use std::time::Duration;
 
 fn main() {
@@ -12,7 +12,7 @@ fn main() {
     }
 }
 
-fn poll(pin_num: u8) -> sysfs_gpio::Result<()> {
+fn poll(pin_num: u64) -> sysfs_gpio::Result<()> {
     let input = Pin::new(pin_num);
     input.with_exported(|| {
         try!(input.set_direction(Direction::In));
@@ -29,7 +29,7 @@ fn poll(pin_num: u8) -> sysfs_gpio::Result<()> {
                          });
                 prev_val = val;
             }
-            sleep_ms(Duration::from_millis(10));
+            sleep(Duration::from_millis(10));
         }
     })
 }
