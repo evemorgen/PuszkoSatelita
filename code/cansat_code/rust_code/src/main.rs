@@ -13,7 +13,7 @@ fn main() {
 }
 
 fn poll(pin_num: u8) -> sysfs_gpio::Result<()> {
-    let input = Pin::new(pin_num)
+    let input = Pin::new(pin_num);
     input.with_exported(|| {
         try!(input.set_direction(Direction::In));
         let mut prev_val: u8 = 255;
