@@ -6,7 +6,12 @@ use std::time::Duration;
 use i2cdev::core::*;
 use i2cdev::linux::{LinuxI2CError, LinuxI2CDevice};
 
-const ADAFRUIT_THERMOMETER_ADDR: u8 = 0x44;
+const ADAFRUIT_THERMOMETER_ADDR: u16 = 0x44;
+
+fn main() {
+    read_temp();
+}
+
 
 fn read_temp() -> Result<(), LinuxI2CError> {
     let mut dev = try!(LinuxI2CDevice::new("/dev/i2c-0", ADAFRUIT_THERMOMETER_ADDR));
