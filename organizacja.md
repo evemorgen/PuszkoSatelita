@@ -4,6 +4,5 @@
 3. Bartłomiej Biesiadecki - Mechanika, elektronika
 4. Tymoteusz Chmielecki - software pokładowy
 5. Jan Dziedzic - Fizyka, obliczenia
-6. Paweł Biłko - Outreach i dokumentacja
 
 Patryk Gałczyński - opiekun zespołu, wsparcie software'u
