@@ -11,7 +11,6 @@ const ADAFRUIT_THERMOMETER_ADDR: u16 = 0x44;
 fn main() {
     match read_temp() {
         LinuxI2CDevice => panic!("No i chuj no i czesc"),
-        _ => println!("--------------")
     }
 }
 
