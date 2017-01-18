@@ -9,7 +9,10 @@ use i2cdev::linux::{LinuxI2CError, LinuxI2CDevice};
 const ADAFRUIT_THERMOMETER_ADDR: u16 = 0x44;
 
 fn main() {
-    read_temp();
+    match read_temp() {
+        LinuxI2CDevice => panic!("No i chuj no i czesc"),
+        Ok(()) => println!("--------------")
+    }
 }
 
 
