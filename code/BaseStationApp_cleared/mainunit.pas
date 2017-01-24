@@ -9,6 +9,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, TAGraph, TASeries, Forms, Controls, Graphics,
+
   Dialogs, StdCtrls, Buttons, ExtCtrls, Menus, SdpoSerial, SerialList,
   DataUnit, JSONDataUnit, JJChart;
 procedure ProccessData;
@@ -16,6 +17,7 @@ procedure UpdateCharts;
 const
   DefaultChartRange = 50;
   ChartQuantity = 7;
+
 type
 
   { TMainForm }
@@ -113,6 +115,7 @@ var
   DataRange: array[1..ChartQuantity] of integer;
   { Charts }
   TEMP_CAN_JJChart: TJJChart;
+
 implementation
 
 {$R *.lfm}
@@ -205,7 +208,6 @@ procedure TMainForm.TEMP_CAN_ChartResize(Sender: TObject);
 begin
   TEMP_CAN_JJChart.Resize(TEMP_CAN_Chart.Width,TEMP_CAN_Chart.Height);
 end;
-
 
 procedure TMainForm.ConnBtnClick(Sender: TObject);
 begin
