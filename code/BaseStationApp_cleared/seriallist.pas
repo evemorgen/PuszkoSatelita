@@ -26,7 +26,7 @@ begin
 {$ENDIF}
     SerialPortList:= TStringList.Create;
     reg.RootKey := HKEY_LOCAL_MACHINE;
-    reg.OpenKeyReadOnly('HARDWARE\DEVICEMAP\SERIALCOMM');//, false);
+    reg.OpenKeyReadOnly('HARDWARE\DEVICEMAP\SERIALCOMM');
     reg.GetValueNames(l);
     for n := 0 to l.Count - 1 do begin
       SerialPortList.Add(reg.ReadString(l[n]));

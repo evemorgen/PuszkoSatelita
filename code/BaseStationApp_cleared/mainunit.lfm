@@ -1,340 +1,561 @@
 object MainForm: TMainForm
-  Left = 447
-  Height = 716
-  Top = 176
-  Width = 1118
+  Left = 336
+  Height = 904
+  Top = 103
+  Width = 1476
   Caption = 'Mission Control'
-  ClientHeight = 696
-  ClientWidth = 1118
+  ClientHeight = 884
+  ClientWidth = 1476
   Color = 1907997
   Font.Color = clWhite
   Menu = MainMenu
   OnCreate = FormCreate
+  OnResize = FormResize
   LCLVersion = '1.6.0.4'
   WindowState = wsMaximized
-  object SerialPortsComboBox: TComboBox
-    Left = 16
-    Height = 23
-    Top = 8
-    Width = 160
-    ItemHeight = 15
-    Style = csDropDownList
-    TabOrder = 0
-  end
-  object ReadInterval: TSpinEdit
-    AnchorSideTop.Control = SerialPortsComboBox
-    AnchorSideTop.Side = asrBottom
-    Left = 16
-    Height = 23
-    Top = 35
-    Width = 160
-    BorderSpacing.Around = 4
-    Font.Color = clBlack
-    MaxValue = 10000
-    MinValue = 10
-    OnChange = ReadIntervalChange
-    ParentFont = False
-    TabOrder = 1
-    Value = 100
-  end
-  object COMIntervalLabel: TLabel
-    AnchorSideLeft.Control = ReadInterval
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = ReadInterval
-    Left = 180
-    Height = 15
-    Top = 39
-    Width = 116
-    BorderSpacing.Around = 4
-    Caption = 'COM Reading interval'
-    ParentColor = False
-  end
-  object InputConsole: TMemo
-    AnchorSideTop.Control = ReadInterval
-    AnchorSideTop.Side = asrBottom
-    AnchorSideBottom.Control = Owner
-    AnchorSideBottom.Side = asrBottom
-    Left = 16
-    Height = 622
-    Top = 66
-    Width = 332
-    Anchors = [akTop, akLeft, akBottom]
-    BorderSpacing.Around = 8
-    BorderStyle = bsNone
-    Color = 1907997
-    Font.CharSet = EASTEUROPE_CHARSET
-    Font.Color = 8454016
-    Font.Height = -12
-    Font.Name = 'Source Code Pro'
-    Font.Pitch = fpFixed
-    Font.Quality = fqDraft
-    OnChange = InputConsoleChange
-    ParentFont = False
-    TabOrder = 2
-  end
-  object TemperatureChart: TChart
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    Left = 360
-    Height = 339
-    Top = 66
-    Width = 758
-    AxisList = <    
-      item
-        Grid.Color = clWhite
-        Grid.Style = psSolid
-        TickColor = clWhite
-        Marks.LabelFont.Color = clWhite
-        Minors = <>
-        Title.LabelFont.Orientation = 900
-      end    
-      item
-        Grid.Color = clWhite
-        Grid.Style = psSolid
-        TickColor = clWhite
-        Alignment = calBottom
-        Marks.LabelFont.Color = clWhite
-        Marks.Frame.Color = clGreen
-        Minors = <>
-        Title.LabelFont.Color = clGreen
-      end>
-    BackColor = 1907997
-    Foot.Brush.Color = clBtnFace
-    Foot.Font.Color = clBlue
-    Frame.Color = clWhite
-    Title.Brush.Color = clBtnFace
-    Title.Font.Color = clBlue
-    Title.Text.Strings = (
-      'TAChart'
-    )
-    Anchors = [akTop, akLeft, akRight]
-    ParentColor = True
-    object Temperature: TLineSeries
-      LinePen.Color = clYellow
-      LinePen.Width = 2
-    end
-  end
-  object ConnStatus: TShape
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Side = asrCenter
-    Left = 352
-    Height = 16
-    Top = 11
-    Width = 16
-    Brush.Color = clRed
-    Pen.Color = clRed
-    Shape = stCircle
-  end
-  object PacksCounter: TLabel
-    AnchorSideLeft.Control = ConnStatus
-    AnchorSideLeft.Side = asrBottom
-    AnchorSideTop.Control = ConnStatus
-    AnchorSideTop.Side = asrCenter
-    Left = 372
-    Height = 15
-    Top = 12
-    Width = 73
-    BorderSpacing.Around = 4
-    Caption = 'PacksCounter'
-    ParentColor = False
-  end
-  object CurrFrame: TLabel
-    AnchorSideLeft.Control = PacksCounter
-    AnchorSideTop.Control = PacksCounter
-    AnchorSideTop.Side = asrBottom
-    Left = 372
-    Height = 15
-    Top = 31
-    Width = 56
-    BorderSpacing.Top = 4
-    Caption = 'CurrFrame'
-    ParentColor = False
-  end
-  object WindChart: TChart
-    AnchorSideLeft.Control = TemperatureChart
-    AnchorSideTop.Control = TemperatureChart
-    AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = TemperatureChart
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = Owner
-    AnchorSideBottom.Side = asrBottom
-    Left = 360
-    Height = 291
-    Top = 405
-    Width = 758
-    AxisList = <    
-      item
-        Grid.Color = clWhite
-        Grid.Style = psSolid
-        TickColor = clWhite
-        Marks.LabelFont.Color = clWhite
-        Minors = <>
-        Title.LabelFont.Orientation = 900
-      end    
-      item
-        Grid.Color = clWhite
-        Grid.Style = psSolid
-        TickColor = clWhite
-        Alignment = calBottom
-        Marks.LabelFont.Color = clWhite
-        Marks.Visible = False
-        Marks.Frame.Color = clGreen
-        Minors = <>
-        Title.LabelFont.Color = clGreen
-      end>
-    BackColor = 1907997
-    Foot.Brush.Color = clBtnFace
-    Foot.Font.Color = clBlue
-    Frame.Color = clWhite
-    Title.Brush.Color = clBtnFace
-    Title.Font.Color = clBlue
-    Title.Text.Strings = (
-      'TAChart'
-    )
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    ParentColor = True
-    object Wind: TLineSeries
-      LinePen.Color = clRed
-      LinePen.Width = 2
-    end
-  end
   object MainContainer: TPanel
-    Left = 180
-    Height = 456
-    Top = 216
-    Width = 692
+    Left = 0
+    Height = 884
+    Top = 0
+    Width = 1476
+    Align = alClient
     BevelOuter = bvNone
     Caption = 'MainContainer'
-    ClientHeight = 456
-    ClientWidth = 692
-    Color = 7745307
+    ClientHeight = 884
+    ClientWidth = 1476
+    Color = clBlack
     ParentColor = False
-    TabOrder = 5
+    TabOrder = 0
     object ConsolePanel: TPanel
       Left = 0
       Height = 50
-      Top = 406
-      Width = 692
+      Top = 834
+      Width = 1476
       Align = alBottom
       BevelOuter = bvNone
       Caption = 'ConsolePanel'
+      ClientHeight = 50
+      ClientWidth = 1476
+      Color = 1907997
+      ParentColor = False
       TabOrder = 0
+      object InputConsole: TMemo
+        Left = 8
+        Height = 34
+        Top = 8
+        Width = 1460
+        Align = alClient
+        Anchors = []
+        BorderSpacing.Around = 8
+        BorderStyle = bsNone
+        Color = 1907997
+        Font.CharSet = EASTEUROPE_CHARSET
+        Font.Color = 8454016
+        Font.Height = -12
+        Font.Name = 'Source Code Pro'
+        Font.Pitch = fpFixed
+        Font.Quality = fqDraft
+        OnChange = InputConsoleChange
+        ParentFont = False
+        TabOrder = 0
+      end
     end
     object ChartSection: TPanel
       Left = 0
-      Height = 356
+      Height = 784
       Top = 50
-      Width = 692
+      Width = 1476
       Align = alClient
       BevelOuter = bvNone
       Caption = 'ChartSection'
-      ClientHeight = 356
-      ClientWidth = 692
+      ClientHeight = 784
+      ClientWidth = 1476
       TabOrder = 1
       object RightPanel: TPanel
-        Left = 522
-        Height = 356
+        Left = 1306
+        Height = 784
         Top = 0
         Width = 170
         Align = alRight
         BevelOuter = bvNone
         Caption = 'RightPanel'
-        ClientHeight = 356
+        ClientHeight = 784
         ClientWidth = 170
         TabOrder = 0
         object RotationPanel: TPanel
           Left = 0
-          Height = 162
+          Height = 322
           Top = 0
           Width = 170
           Align = alTop
           BevelOuter = bvNone
           Caption = 'RotationPanel'
+          ClientHeight = 322
+          ClientWidth = 170
           TabOrder = 0
+          object RotationChart: TChart
+            Left = 0
+            Height = 322
+            Top = 0
+            Width = 170
+            AxisList = <            
+              item
+                Grid.Color = clHighlight
+                TickColor = clHighlight
+                AxisPen.Color = clHighlight
+                Marks.LabelFont.Color = clHighlight
+                Minors = <>
+                Title.LabelFont.Orientation = 900
+              end            
+              item
+                Grid.Color = clHighlight
+                TickColor = clMenuHighlight
+                Alignment = calBottom
+                Marks.LabelFont.Color = clHighlight
+                Marks.Frame.Color = clGreen
+                Minors = <>
+                Title.LabelFont.Color = clGreen
+              end>
+            BackColor = clBlack
+            Foot.Brush.Color = clBtnFace
+            Foot.Font.Color = clBlue
+            Frame.Color = clHighlight
+            Frame.EndCap = pecSquare
+            Title.Brush.Color = clBlack
+            Title.Font.Color = clHighlight
+            Title.Frame.Color = clHighlight
+            Title.Frame.Visible = True
+            Title.Text.Strings = (
+              'Rotation'
+            )
+            Title.Visible = True
+            Align = alClient
+            Anchors = []
+            Color = clBlack
+            DoubleBuffered = True
+            object X_ROT: TLineSeries
+              Tag = 6
+              LinePen.Color = 1175190
+              LinePen.Style = psDash
+              LinePen.Width = 2
+            end
+            object Y_ROT: TLineSeries
+              Tag = 6
+              LinePen.Color = 13783785
+              LinePen.Style = psDash
+              LinePen.Width = 2
+            end
+            object Z_ROT: TLineSeries
+              Tag = 6
+              LinePen.Color = 6900596
+              LinePen.Style = psDash
+              LinePen.Width = 2
+            end
+          end
         end
         object GPSPanel: TPanel
           Left = 0
-          Height = 194
-          Top = 162
+          Height = 462
+          Top = 322
           Width = 170
           Align = alClient
           BevelOuter = bvNone
           Caption = 'GPSPanel'
+          ClientHeight = 462
+          ClientWidth = 170
           TabOrder = 1
+          object GPSChart: TChart
+            Left = 0
+            Height = 462
+            Top = 0
+            Width = 170
+            AxisList = <            
+              item
+                Grid.Color = clHighlight
+                TickColor = clHighlight
+                AxisPen.Color = clHighlight
+                Marks.LabelFont.Color = clHighlight
+                Minors = <>
+                Title.LabelFont.Orientation = 900
+              end            
+              item
+                Grid.Color = clHighlight
+                TickColor = clMenuHighlight
+                Alignment = calBottom
+                Marks.LabelFont.Color = clHighlight
+                Marks.Frame.Color = clGreen
+                Minors = <>
+                Title.LabelFont.Color = clGreen
+              end>
+            BackColor = clBlack
+            Foot.Brush.Color = clBtnFace
+            Foot.Font.Color = clBlue
+            Frame.Color = clHighlight
+            Frame.EndCap = pecSquare
+            Title.Brush.Color = clBlack
+            Title.Font.Color = clHighlight
+            Title.Frame.Color = clHighlight
+            Title.Frame.Visible = True
+            Title.Text.Strings = (
+              'GPS position'
+            )
+            Title.Visible = True
+            Align = alClient
+            Anchors = []
+            Color = clBlack
+            DoubleBuffered = True
+            object GPS_N: TLineSeries
+              Tag = 7
+              LinePen.Color = 4966965
+              LinePen.Width = 2
+            end
+            object GPS_E: TLineSeries
+              Tag = 7
+              LinePen.Color = 6874090
+              LinePen.Width = 2
+            end
+          end
         end
       end
       object LeftPanel: TPanel
         Left = 0
-        Height = 356
+        Height = 784
         Top = 0
         Width = 170
         Align = alLeft
         BevelOuter = bvNone
         Caption = 'LeftPanel'
-        ClientHeight = 356
+        ClientHeight = 784
         ClientWidth = 170
         TabOrder = 1
         object HumidityPanel: TPanel
           Left = 0
-          Height = 119
+          Height = 280
           Top = 0
           Width = 170
           Align = alTop
           BevelOuter = bvNone
           Caption = 'HumidityPanel'
+          ClientHeight = 280
+          ClientWidth = 170
           TabOrder = 0
+          object HumidityChart: TChart
+            Left = 0
+            Height = 280
+            Top = 0
+            Width = 170
+            AxisList = <            
+              item
+                Grid.Color = clHighlight
+                TickColor = clHighlight
+                AxisPen.Color = clHighlight
+                Marks.LabelFont.Color = clHighlight
+                Minors = <>
+                Title.LabelFont.Orientation = 900
+              end            
+              item
+                Grid.Color = clHighlight
+                TickColor = clMenuHighlight
+                Alignment = calBottom
+                Marks.LabelFont.Color = clHighlight
+                Marks.Frame.Color = clGreen
+                Minors = <>
+                Title.LabelFont.Color = clGreen
+              end>
+            BackColor = clBlack
+            Foot.Brush.Color = clBtnFace
+            Foot.Font.Color = clBlue
+            Frame.Color = clHighlight
+            Frame.EndCap = pecSquare
+            Title.Brush.Color = clBlack
+            Title.Font.Color = clHighlight
+            Title.Frame.Color = clHighlight
+            Title.Frame.Visible = True
+            Title.Text.Strings = (
+              'Humidity'
+            )
+            Title.Visible = True
+            Align = alClient
+            Anchors = []
+            Color = clBlack
+            DoubleBuffered = True
+            OnDblClick = HumidityChartDblClick
+            object AIR_HUM: TLineSeries
+              Tag = 1
+              LinePen.Color = 16729600
+              LinePen.Width = 2
+            end
+          end
         end
         object WindPanel: TPanel
           Left = 0
-          Height = 142
-          Top = 119
+          Height = 409
+          Top = 280
           Width = 170
           Align = alClient
           BevelOuter = bvNone
           Caption = 'WindPanel'
+          ClientHeight = 409
+          ClientWidth = 170
           TabOrder = 1
+          object WindChart: TChart
+            Left = 0
+            Height = 409
+            Top = 0
+            Width = 170
+            AxisList = <            
+              item
+                Grid.Color = clHighlight
+                TickColor = clHighlight
+                AxisPen.Color = clHighlight
+                Marks.LabelFont.Color = clHighlight
+                Minors = <>
+                Title.LabelFont.Orientation = 900
+              end            
+              item
+                Grid.Color = clHighlight
+                TickColor = clMenuHighlight
+                Alignment = calBottom
+                Marks.LabelFont.Color = clHighlight
+                Marks.Frame.Color = clGreen
+                Minors = <>
+                Title.LabelFont.Color = clGreen
+              end>
+            BackColor = clBlack
+            Foot.Brush.Color = clBtnFace
+            Foot.Font.Color = clBlue
+            Frame.Color = clHighlight
+            Frame.EndCap = pecSquare
+            Title.Brush.Color = clBlack
+            Title.Font.Color = clHighlight
+            Title.Frame.Color = clHighlight
+            Title.Frame.Visible = True
+            Title.Text.Strings = (
+              'Wind speed'
+            )
+            Title.Visible = True
+            Align = alClient
+            Anchors = []
+            Color = clBlack
+            DoubleBuffered = True
+            object WIND_SPEED: TLineSeries
+              Tag = 2
+              Shadow.Color = clAqua
+              LinePen.Color = 2662103
+              LinePen.Width = 2
+            end
+          end
         end
         object PressurePanel: TPanel
           Left = 0
           Height = 95
-          Top = 261
+          Top = 689
           Width = 170
           Align = alBottom
           BevelOuter = bvNone
           Caption = 'PressurePanel'
+          ClientHeight = 95
+          ClientWidth = 170
           TabOrder = 2
+          object PressureChart: TChart
+            Left = 0
+            Height = 95
+            Top = 0
+            Width = 170
+            AxisList = <            
+              item
+                Grid.Color = clHighlight
+                TickColor = clHighlight
+                AxisPen.Color = clHighlight
+                Marks.LabelFont.Color = clHighlight
+                Minors = <>
+                Title.LabelFont.Orientation = 900
+              end            
+              item
+                Grid.Color = clHighlight
+                TickColor = clMenuHighlight
+                Alignment = calBottom
+                Marks.LabelFont.Color = clHighlight
+                Marks.Frame.Color = clGreen
+                Minors = <>
+                Title.LabelFont.Color = clGreen
+              end>
+            BackColor = clBlack
+            Foot.Brush.Color = clBtnFace
+            Foot.Font.Color = clBlue
+            Frame.Color = clHighlight
+            Frame.EndCap = pecSquare
+            Title.Brush.Color = clBlack
+            Title.Font.Color = clHighlight
+            Title.Frame.Color = clHighlight
+            Title.Frame.Visible = True
+            Title.Text.Strings = (
+              'Pressure'
+            )
+            Title.Visible = True
+            Align = alClient
+            Anchors = []
+            Color = clBlack
+            DoubleBuffered = True
+            object PRESS_CAN: TLineSeries
+              Tag = 3
+              LinePen.Color = 14869021
+              LinePen.Width = 2
+            end
+            object PRESS_BASE: TLineSeries
+              Tag = 3
+              LinePen.Color = 16737419
+              LinePen.Width = 2
+            end
+          end
         end
       end
       object CenterPanel: TPanel
         Left = 170
-        Height = 356
+        Height = 784
         Top = 0
-        Width = 352
+        Width = 1136
         Align = alClient
         BevelOuter = bvNone
         Caption = 'CenterPanel'
-        ClientHeight = 356
-        ClientWidth = 352
+        ClientHeight = 784
+        ClientWidth = 1136
         TabOrder = 2
         object TemperaturePanel: TPanel
           Left = 0
           Height = 170
           Top = 0
-          Width = 352
+          Width = 1136
           Align = alTop
           BevelOuter = bvNone
           Caption = 'TemperaturePanel'
+          ClientHeight = 170
+          ClientWidth = 1136
           TabOrder = 0
+          object TemperatureChart: TChart
+            Left = 0
+            Height = 170
+            Top = 0
+            Width = 1136
+            AxisList = <            
+              item
+                Grid.Color = clHighlight
+                TickColor = clHighlight
+                AxisPen.Color = clHighlight
+                Marks.LabelFont.Color = clHighlight
+                Minors = <>
+                Title.LabelFont.Orientation = 900
+              end            
+              item
+                Grid.Color = clHighlight
+                TickColor = clMenuHighlight
+                Alignment = calBottom
+                Marks.LabelFont.Color = clHighlight
+                Marks.Frame.Color = clGreen
+                Minors = <>
+                Title.LabelFont.Color = clGreen
+              end>
+            BackColor = clBlack
+            Foot.Brush.Color = clBtnFace
+            Foot.Font.Color = clBlue
+            Frame.Color = clHighlight
+            Frame.EndCap = pecSquare
+            Title.Brush.Color = clBlack
+            Title.Font.Color = clHighlight
+            Title.Frame.Color = clHighlight
+            Title.Frame.Visible = True
+            Title.Text.Strings = (
+              'Temperature'
+            )
+            Title.Visible = True
+            Align = alClient
+            Anchors = []
+            Color = clBlack
+            DoubleBuffered = True
+            object TEMP_CAN: TLineSeries
+              Tag = 4
+              LinePen.Color = clYellow
+              LinePen.Width = 2
+            end
+            object TEMP_BASE: TLineSeries
+              Tag = 4
+              LinePen.Color = clRed
+              LinePen.Width = 2
+            end
+          end
+          object TEMP_CAN_Chart: TPanel
+            Left = 0
+            Height = 170
+            Top = 0
+            Width = 1136
+            Align = alClient
+            BevelOuter = bvNone
+            Caption = 'TEMP_CAN_Chart'
+            TabOrder = 1
+            OnResize = TEMP_CAN_ChartResize
+          end
         end
         object AltitudePanel: TPanel
           Left = 0
-          Height = 186
+          Height = 614
           Top = 170
-          Width = 352
+          Width = 1136
           Align = alClient
           BevelOuter = bvNone
           Caption = 'AltitudePanel'
+          ClientHeight = 614
+          ClientWidth = 1136
           TabOrder = 1
+          object AltitudeChart: TChart
+            Left = 0
+            Height = 614
+            Top = 0
+            Width = 1136
+            AxisList = <            
+              item
+                Grid.Color = clHighlight
+                TickColor = clHighlight
+                AxisPen.Color = clHighlight
+                Marks.LabelFont.Color = clHighlight
+                Minors = <>
+                Title.LabelFont.Orientation = 900
+              end            
+              item
+                Grid.Color = clHighlight
+                TickColor = clMenuHighlight
+                Alignment = calBottom
+                Marks.LabelFont.Color = clHighlight
+                Marks.Frame.Color = clGreen
+                Minors = <>
+                Title.LabelFont.Color = clGreen
+              end>
+            BackColor = clBlack
+            Foot.Brush.Color = clBtnFace
+            Foot.Font.Color = clBlue
+            Frame.Color = clHighlight
+            Frame.EndCap = pecSquare
+            Title.Brush.Color = clBlack
+            Title.Font.Color = clHighlight
+            Title.Frame.Color = clHighlight
+            Title.Frame.Visible = True
+            Title.Text.Strings = (
+              'Altitude'
+            )
+            Title.Visible = True
+            Align = alClient
+            Anchors = []
+            Color = clBlack
+            DoubleBuffered = True
+            object ALT_BASE: TLineSeries
+              Tag = 5
+              LinePen.Color = 15879496
+              LinePen.Width = 2
+            end
+            object ALT_CAN: TLineSeries
+              Tag = 5
+              LinePen.Color = 4147179
+            end
+          end
         end
       end
     end
@@ -342,11 +563,50 @@ object MainForm: TMainForm
       Left = 0
       Height = 50
       Top = 0
-      Width = 692
+      Width = 1476
       Align = alTop
       BevelOuter = bvNone
-      Caption = 'TopStatusBar'
+      ClientHeight = 50
+      ClientWidth = 1476
+      Color = 1907997
+      ParentColor = False
       TabOrder = 2
+      object ConnStatus: TShape
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Side = asrCenter
+        Left = 352
+        Height = 16
+        Top = 11
+        Width = 16
+        Brush.Color = clRed
+        Pen.Color = clRed
+        Shape = stCircle
+      end
+      object PacksCounter: TLabel
+        AnchorSideLeft.Control = ConnStatus
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = ConnStatus
+        AnchorSideTop.Side = asrCenter
+        Left = 372
+        Height = 15
+        Top = 12
+        Width = 73
+        BorderSpacing.Around = 4
+        Caption = 'PacksCounter'
+        ParentColor = False
+      end
+      object CurrFrame: TLabel
+        AnchorSideLeft.Control = PacksCounter
+        AnchorSideTop.Control = PacksCounter
+        AnchorSideTop.Side = asrBottom
+        Left = 372
+        Height = 15
+        Top = 31
+        Width = 56
+        BorderSpacing.Top = 4
+        Caption = 'CurrFrame'
+        ParentColor = False
+      end
     end
   end
   object SerialPort: TSdpoSerial
@@ -358,19 +618,19 @@ object MainForm: TMainForm
     FlowControl = fcNone
     StopBits = sbOne
     Device = 'COM3'
-    left = 576
+    left = 704
     top = 8
   end
   object COMReader: TTimer
     Enabled = False
-    Interval = 100
+    Interval = 10
     OnTimer = COMReaderTimer
-    left = 488
+    left = 744
     top = 8
   end
   object MainMenu: TMainMenu
-    left = 72
-    top = 136
+    left = 664
+    top = 8
     object FileMenu: TMenuItem
       Caption = 'File'
       OnClick = FileMenuClick
@@ -572,6 +832,7 @@ object MainForm: TMainForm
           00000000000000000000000000000000000000000000AB00414FAA003E6F0000
           0000000000000000000000000000000000000000000000000000
         }
+        OnClick = COMBtnClick
       end
       object ConnNameBtn: TMenuItem
         Caption = 'Enter port name'
@@ -611,6 +872,7 @@ object MainForm: TMainForm
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000
         }
+        OnClick = ConnNameBtnClick
       end
       object ConnSwitch: TMenuItem
         Caption = 'Connect'
@@ -730,6 +992,46 @@ object MainForm: TMainForm
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000
         }
+      end
+      object RescanBtn: TMenuItem
+        Caption = 'Scan for devices'
+        Bitmap.Data = {
+          36040000424D3604000000000000360000002800000010000000100000000100
+          2000000000000004000064000000640000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          00000000000000000000000000003300CC052600D9AD2700D842000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          000000000000000000000000FF012700D8A52700D8FE2800D766000000000000
+          0000000000000000000000000000000000003300CC0A0000FF01000000000000
+          000000000000000000002700D8912700D8FE2700D86900000000000000000000
+          0000000000002600D9282700D8A52700D8DA2700D8FE2700D8F12800D7C12800
+          D753000000002700D87B2700D8FE2700D8690000000000000000000000000000
+          00002700D86F2700D8F72700D8E22700D89B2700D86E2600D9862700D8BC2700
+          D8FF2700D8D02700D8FE2700D869000000000000000000000000000000002800
+          D75A2700D8FF2700D8982B00D50C000000000000000000000000000000002800
+          D74C2600D9E82700D8F42600D9140000000000000000000000002400DB1C2700
+          D8EF2800D7AE0000000000000000000000000000000000000000000000000000
+          00002800D7402700D8FE2700D88F0000000000000000000000002700D86E2700
+          D8FC2C00D3170000000000000000000000000000000000000000000000000000
+          0000000000002700D8A32700D8F00000000000000000000000002600D9A02700
+          D8D2000000000000000000000000000000000000000000000000000000000000
+          0000000000002700D8622700D8FF2300DC1D00000000000000002700D8C32600
+          D9AD000000000000000000000000000000000000000000000000000000000000
+          0000000000002600D93D2700D8FF2700D83B00000000000000002700D89C2700
+          D8D6000000000000000000000000000000000000000000000000000000000000
+          0000000000002800D7662700D8FF2B00D51200000000000000002600D96A2700
+          D8FD2800D7200000000000000000000000000000000000000000000000000000
+          0000000000002800D7AE2700D8DC0000000000000000000000002600D9142700
+          D8E72700D8BD0000FF0100000000000000000000000000000000000000000000
+          00002700D84F2700D8FF2700D86E000000000000000000000000000000002600
+          D94A2700D8FF2700D8AF2C00D317000000000000000000000000000000002600
+          D9642700D8F22700D8BE0000FF01000000000000000000000000000000000000
+          00002600D9582700D8ED2700D8EF2600D9B32600D9862700D89E2600D9D42700
+          D8FF2700D8A92800D71300000000000000000000000000000000000000000000
+          0000000000002700D81A2800D78D2700D8C22700D8F02700D8D82700D8A52600
+          D951000000000000000000000000000000000000000000000000
+        }
+        OnClick = RescanBtnClick
       end
     end
   end

@@ -39,7 +39,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="4">
+    <Units Count="6">
       <Unit0>
         <Filename Value="MC_JJ_Win.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -61,6 +61,16 @@
         <Filename Value="DataUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit3>
+      <Unit4>
+        <Filename Value="jsondataunit.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="JSONDataUnit"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="jjchart.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="JJChart"/>
+      </Unit5>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
