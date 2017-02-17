@@ -6,13 +6,6 @@ imu = AltIMU()
 imu.enable()
 
 imu.calibrateGyroAngles()
-
-#for x in range(1000):
-#    startTime = datetime.now()
-#    angles = imu.trackGyroAngles(deltaT = 0.0002)
-
-#print angles
-
 start = datetime.now()
 
 while True:
