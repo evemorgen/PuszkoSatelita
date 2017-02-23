@@ -24,6 +24,18 @@ while True:
     print "Altitude:", baro.getAltitude()
     sleep(5)
 """
+
+
 def read_altimu():
-	string=",".join(map(str,imu.getGyroscopeRaw()+imu.getAccelerometerRaw()+magnet.getMagnetometerRaw()+baro.getBarometerMillibars()+baro.getAltitude()))
-	return(string)
+    barolist = []
+    list.append(barolist, baro.getBarometerMillibars())
+    list.append(barolist, baro.getAltitude())
+    string = ",".join(map(str, imu.getGyroscopeRaw() +
+                          imu.getAccelerometerRaw() +
+                          magnet.getMagnetometerRaw() +
+                          barolist
+                          ))
+    return string
+
+
+print(read_altimu())
