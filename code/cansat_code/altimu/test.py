@@ -14,7 +14,8 @@ magnet.enableLIS()
 
 baro = LPS25H()
 baro.enableLPS()
-
+###Uncomment below lines to show debug###
+"""
 while True:
     print "Gyro:", imu.getGyroscopeRaw()
     print "Accelerometer:", imu.getAccelerometerRaw()
@@ -22,3 +23,7 @@ while True:
     print "hPa:", baro.getBarometerMillibars()
     print "Altitude:", baro.getAltitude()
     sleep(5)
+"""
+def read_altimu():
+	string=",".join(map(str,imu.getGyroscopeRaw()+imu.getAccelerometerRaw()+magnet.getMagnetometerRaw()+baro.getBarometerMillibars()+baro.getAltitude()))
+	return(string)
