@@ -27,6 +27,7 @@ while True:
 
 
 def read_altimu():
+    # type: () -> object
     barolist = []
     list.append(barolist, baro.getBarometerMillibars())
     list.append(barolist, baro.getAltitude())
@@ -38,4 +39,4 @@ def read_altimu():
     return string
 
 
-print(read_altimu())
+
