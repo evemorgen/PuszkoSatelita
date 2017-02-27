@@ -64,7 +64,7 @@ class LoRaArgumentParser(argparse.ArgumentParser):
         # some sanity checks
         assert(args.bw is not None)
         assert(args.coding_rate is not None)
-        assert(args.sf >=6 and args.sf <= 12)
+        assert(6 <= args.sf <= 12)
         # set the LoRa object
         lora.set_freq(args.freq)
         lora.set_preamble(args.preamble)
