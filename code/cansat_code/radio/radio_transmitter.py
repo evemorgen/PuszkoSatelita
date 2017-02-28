@@ -11,7 +11,7 @@ BOARD.setup()
 
 def payloadgenerator(payloadstring):
     payloadlist = [ord(c) for c in payloadstring]
-    checksum = 0
+    checksum = 1
     for item in payloadlist:
         checksum *= item
         checksum %= 1234577
