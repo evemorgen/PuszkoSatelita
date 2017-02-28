@@ -52,7 +52,7 @@ class LoRaBeacon(LoRa):
         sys.stdout.write("\rtx #%d" % self.tx_counter)
         sleep(time2sleep)
         self.write_payload(payloadgenerator(
-            open('/home/pi/data/radio/current.txt', 'r').read()+str(self.tx_counter)))
+            open('/home/pi/data/radio/current.txt', 'r').read()))
         self.set_mode(MODE.TX)
 
     def on_cad_done(self):
