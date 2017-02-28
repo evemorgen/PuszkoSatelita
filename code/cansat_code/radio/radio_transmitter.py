@@ -87,7 +87,7 @@ class LoRaBeacon(LoRa):
 
 
 
-lora = LoRaBeacon(verbose=True)
+lora = LoRaBeacon(verbose=False)
 """
 lora.set_freq(433.8)
 lora.set_preamble(8)

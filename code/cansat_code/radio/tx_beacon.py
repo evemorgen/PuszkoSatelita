@@ -33,7 +33,7 @@ BOARD.setup()
 parser = LoRaArgumentParser("A simple LoRa beacon")
 parser.add_argument('--single', '-S', dest='single', default=False, action="store_true", help="Single transmission")
 parser.add_argument('--wait', '-w', dest='wait', default=1, action="store", type=float, help="Waiting time between transmissions (default is 0s)")
-
+parser.add_argument('--freq', '-f', dest='freq', default=433.8, action="store", type=float, help="Frequency")
 
 class LoRaBeacon(LoRa):
 
@@ -53,6 +53,7 @@ class LoRaBeacon(LoRa):
         self.set_mode(MODE.RXCONT)
 
     def on_tx_done(self):
+        self.set_mode(MODE.STDBY)
         global args
         self.set_mode(MODE.STDBY)
         self.clear_irq_flags(TxDone=1)

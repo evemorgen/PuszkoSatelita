@@ -48,15 +48,14 @@ class BOARD:
         """
         GPIO.setmode(GPIO.BCM)
         # LED
-        GPIO.setup(BOARD.LED, GPIO.OUT)
-        GPIO.output(BOARD.LED, 0)
+        #GPIO.setup(BOARD.LED, GPIO.OUT)
+        #GPIO.output(BOARD.LED, 0)
         # switch
         GPIO.setup(BOARD.SWITCH, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) 
         # DIOx
         for gpio_pin in [BOARD.DIO0, BOARD.DIO1, BOARD.DIO2, BOARD.DIO3]:
             GPIO.setup(gpio_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-        # blink 2 times to signal the board is set up
-        BOARD.blink(.1, 2)
+
 
     @staticmethod
     def teardown():
@@ -94,33 +93,3 @@ class BOARD:
         # the modtronix inAir9B does not expose DIO4 and DIO5
         if switch_cb is not None:
             GPIO.add_event_detect(BOARD.SWITCH, GPIO.RISING, callback=switch_cb, bouncetime=300)
-
-    @staticmethod
-    def led_on(value=1):
-        """ Switch the proto shields LED
-        :param value: 0/1 for off/on. Default is 1.
-        :return: value
-        :rtype : int
-        """
-        GPIO.output(BOARD.LED, value)
-        return value
-
-    @staticmethod
-    def led_off():
-        """ Switch LED off
-        :return: 0
-        """
-        GPIO.output(BOARD.LED, 0)
-        return 0
-
-    @staticmethod
-    def blink(time_sec, n_blink):
-        if n_blink == 0:
-            return
-        BOARD.led_on()
-        for i in range(n_blink):
-            time.sleep(time_sec)
-            BOARD.led_off()
-            time.sleep(time_sec)
-            BOARD.led_on()
-        BOARD.led_off()
