@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.0.2">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -2986,11 +2986,6 @@ Source: AVX .. aphvc.pdf</description>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="GND11" library="supply1" deviceset="GND" device=""/>
-<part name="GND12" library="supply1" deviceset="GND" device=""/>
-<part name="GND13" library="supply1" deviceset="GND" device=""/>
-<part name="GND14" library="supply1" deviceset="GND" device=""/>
-<part name="GND15" library="supply1" deviceset="GND" device=""/>
-<part name="GND16" library="supply1" deviceset="GND" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="RADIOR" library="headers(2mm)" deviceset="1X7" device=""/>
 <part name="RADIOL" library="headers(2mm)" deviceset="1X7" device=""/>
@@ -3018,8 +3013,8 @@ Source: AVX .. aphvc.pdf</description>
 <part name="GND28" library="supply1" deviceset="GND" device=""/>
 <part name="3.3V2" library="pinhead" deviceset="PINHD-1X4" device=""/>
 <part name="GND29" library="supply1" deviceset="GND" device=""/>
-<part name="SJ1" library="jumper" deviceset="SJ2W" device="W"/>
-<part name="SJ2" library="jumper" deviceset="SJ2W" device="W"/>
+<part name="SJ1" library="jumper" deviceset="SJ2W" device=""/>
+<part name="SJ2" library="jumper" deviceset="SJ2W" device=""/>
 <part name="R1" library="eagle-ltspice" deviceset="R" device="R1206" value="10k"/>
 <part name="R2" library="eagle-ltspice" deviceset="R" device="R1206" value="10k"/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
@@ -3055,14 +3050,9 @@ Source: AVX .. aphvc.pdf</description>
 <instance part="GND8" gate="1" x="40.64" y="66.04" rot="R270"/>
 <instance part="GND10" gate="1" x="167.64" y="132.08" rot="R270"/>
 <instance part="GND11" gate="1" x="167.64" y="114.3" rot="R270"/>
-<instance part="GND12" gate="1" x="236.22" y="121.92" rot="R90"/>
-<instance part="GND13" gate="1" x="236.22" y="127" rot="R90"/>
-<instance part="GND14" gate="1" x="236.22" y="139.7" rot="R90"/>
-<instance part="GND15" gate="1" x="236.22" y="147.32" rot="R90"/>
-<instance part="GND16" gate="1" x="236.22" y="157.48" rot="R90"/>
 <instance part="GND4" gate="1" x="121.92" y="68.58" rot="R270"/>
 <instance part="RADIOR" gate="G$1" x="165.1" y="71.12"/>
-<instance part="RADIOL" gate="G$1" x="187.96" y="71.12"/>
+<instance part="RADIOL" gate="G$1" x="193.04" y="71.12"/>
 <instance part="C2" gate="G$1" x="175.26" y="76.2"/>
 <instance part="C3" gate="G$1" x="124.46" y="66.04"/>
 <instance part="C4" gate="G$1" x="99.06" y="60.96"/>
@@ -3108,16 +3098,6 @@ Source: AVX .. aphvc.pdf</description>
 <label x="5.08" y="78.74" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
-<wire x1="86.36" y1="58.42" x2="96.52" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="58.42" x2="96.52" y2="63.5" width="0.1524" layer="91"/>
-<pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="96.52" y1="63.5" x2="99.06" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="63.5" x2="104.14" y2="63.5" width="0.1524" layer="91"/>
-<junction x="99.06" y="63.5"/>
-<label x="104.14" y="63.5" size="1.27" layer="95" xref="yes"/>
-<pinref part="GPS" gate="A" pin="2"/>
-</segment>
-<segment>
 <pinref part="ALTIMU" gate="A" pin="4"/>
 <wire x1="53.34" y1="63.5" x2="48.26" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="48.26" y1="63.5" x2="48.26" y2="58.42" width="0.1524" layer="91"/>
@@ -3144,14 +3124,6 @@ Source: AVX .. aphvc.pdf</description>
 <junction x="172.72" y="165.1"/>
 </segment>
 <segment>
-<pinref part="RADIOR" gate="G$1" pin="2"/>
-<wire x1="167.64" y1="76.2" x2="172.72" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="172.72" y1="76.2" x2="172.72" y2="71.12" width="0.1524" layer="91"/>
-<pinref part="C2" gate="G$1" pin="2"/>
-<wire x1="172.72" y1="71.12" x2="175.26" y2="71.12" width="0.1524" layer="91"/>
-<label x="175.26" y="71.12" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
 <pinref part="VOLTMETER" gate="A" pin="1"/>
 <wire x1="20.32" y1="134.62" x2="15.24" y2="134.62" width="0.1524" layer="91"/>
 <label x="15.24" y="134.62" size="1.27" layer="95" rot="R180" xref="yes"/>
@@ -3165,6 +3137,24 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="3.3V2" gate="A" pin="4"/>
 <wire x1="142.24" y1="147.32" x2="134.62" y2="147.32" width="0.1524" layer="91"/>
 <label x="134.62" y="147.32" size="1.27" layer="95" rot="R270" xref="yes"/>
+</segment>
+<segment>
+<pinref part="RADIOR" gate="G$1" pin="2"/>
+<wire x1="167.64" y1="76.2" x2="172.72" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="76.2" x2="172.72" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="C2" gate="G$1" pin="2"/>
+<wire x1="172.72" y1="71.12" x2="175.26" y2="71.12" width="0.1524" layer="91"/>
+<label x="175.26" y="71.12" size="1.27" layer="95" xref="yes"/>
+</segment>
+<segment>
+<wire x1="86.36" y1="58.42" x2="96.52" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="58.42" x2="96.52" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="C4" gate="G$1" pin="1"/>
+<wire x1="96.52" y1="63.5" x2="99.06" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="63.5" x2="104.14" y2="63.5" width="0.1524" layer="91"/>
+<junction x="99.06" y="63.5"/>
+<label x="104.14" y="63.5" size="1.27" layer="95" xref="yes"/>
+<pinref part="GPS" gate="A" pin="2"/>
 </segment>
 </net>
 <net name="GND" class="0">
@@ -3193,31 +3183,6 @@ Source: AVX .. aphvc.pdf</description>
 <pinref part="GND11" gate="1" pin="GND"/>
 <pinref part="RASPIZERO" gate="G$1" pin="GND@3"/>
 <wire x1="170.18" y1="114.3" x2="177.8" y2="114.3" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="RASPIZERO" gate="G$1" pin="GND@7"/>
-<pinref part="GND12" gate="1" pin="GND"/>
-<wire x1="226.06" y1="121.92" x2="233.68" y2="121.92" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="RASPIZERO" gate="G$1" pin="GND@6"/>
-<pinref part="GND13" gate="1" pin="GND"/>
-<wire x1="226.06" y1="127" x2="233.68" y2="127" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="RASPIZERO" gate="G$1" pin="GND@5"/>
-<pinref part="GND14" gate="1" pin="GND"/>
-<wire x1="226.06" y1="139.7" x2="233.68" y2="139.7" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND15" gate="1" pin="GND"/>
-<pinref part="RASPIZERO" gate="G$1" pin="GND@4"/>
-<wire x1="233.68" y1="147.32" x2="226.06" y2="147.32" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="GND16" gate="1" pin="GND"/>
-<pinref part="RASPIZERO" gate="G$1" pin="GND@8"/>
-<wire x1="233.68" y1="157.48" x2="226.06" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="ENCODER" gate="A" pin="1"/>
@@ -3413,8 +3378,8 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="154.94" y1="185.42" x2="154.94" y2="93.98" width="0.3048" layer="91" style="dashdot"/>
 <wire x1="154.94" y1="185.42" x2="246.38" y2="185.42" width="0.3048" layer="91" style="dashdot"/>
 <wire x1="246.38" y1="185.42" x2="246.38" y2="93.98" width="0.3048" layer="91" style="dashdot"/>
-<wire x1="246.38" y1="93.98" x2="203.2" y2="93.98" width="0.3048" layer="91" style="dashdot"/>
-<wire x1="203.2" y1="93.98" x2="160.02" y2="93.98" width="0.3048" layer="91" style="dashdot"/>
+<wire x1="246.38" y1="93.98" x2="208.28" y2="93.98" width="0.3048" layer="91" style="dashdot"/>
+<wire x1="208.28" y1="93.98" x2="160.02" y2="93.98" width="0.3048" layer="91" style="dashdot"/>
 <wire x1="160.02" y1="93.98" x2="154.94" y2="93.98" width="0.3048" layer="91" style="dashdot"/>
 <wire x1="-10.16" y1="93.98" x2="-10.16" y2="45.72" width="0.3048" layer="91" style="dashdot"/>
 <wire x1="160.02" y1="93.98" x2="160.02" y2="45.72" width="0.3048" layer="91" style="dashdot"/>
@@ -3422,8 +3387,8 @@ Source: AVX .. aphvc.pdf</description>
 <wire x1="160.02" y1="45.72" x2="182.88" y2="45.72" width="0.3048" layer="91" style="dashdot"/>
 <wire x1="182.88" y1="45.72" x2="246.38" y2="45.72" width="0.3048" layer="91" style="dashdot"/>
 <wire x1="246.38" y1="45.72" x2="246.38" y2="93.98" width="0.3048" layer="91" style="dashdot"/>
-<wire x1="203.2" y1="93.98" x2="203.2" y2="58.42" width="0.3048" layer="91" style="dashdot"/>
-<wire x1="203.2" y1="58.42" x2="182.88" y2="58.42" width="0.3048" layer="91" style="dashdot"/>
+<wire x1="208.28" y1="93.98" x2="208.28" y2="58.42" width="0.3048" layer="91" style="dashdot"/>
+<wire x1="208.28" y1="58.42" x2="182.88" y2="58.42" width="0.3048" layer="91" style="dashdot"/>
 <wire x1="182.88" y1="58.42" x2="182.88" y2="45.72" width="0.3048" layer="91" style="dashdot"/>
 </segment>
 </net>
@@ -3494,8 +3459,8 @@ Source: AVX .. aphvc.pdf</description>
 </segment>
 <segment>
 <pinref part="RADIOL" gate="G$1" pin="3"/>
-<wire x1="190.5" y1="73.66" x2="193.04" y2="73.66" width="0.1524" layer="91"/>
-<label x="193.04" y="73.66" size="1.27" layer="95" xref="yes"/>
+<wire x1="195.58" y1="73.66" x2="198.12" y2="73.66" width="0.1524" layer="91"/>
+<label x="198.12" y="73.66" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
@@ -3506,8 +3471,8 @@ Source: AVX .. aphvc.pdf</description>
 </segment>
 <segment>
 <pinref part="RADIOL" gate="G$1" pin="2"/>
-<wire x1="190.5" y1="76.2" x2="193.04" y2="76.2" width="0.1524" layer="91"/>
-<label x="193.04" y="76.2" size="1.27" layer="95" xref="yes"/>
+<wire x1="195.58" y1="76.2" x2="198.12" y2="76.2" width="0.1524" layer="91"/>
+<label x="198.12" y="76.2" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SCLK" class="0">
@@ -3518,8 +3483,8 @@ Source: AVX .. aphvc.pdf</description>
 </segment>
 <segment>
 <pinref part="RADIOL" gate="G$1" pin="4"/>
-<wire x1="190.5" y1="71.12" x2="193.04" y2="71.12" width="0.1524" layer="91"/>
-<label x="193.04" y="71.12" size="1.27" layer="95" xref="yes"/>
+<wire x1="195.58" y1="71.12" x2="198.12" y2="71.12" width="0.1524" layer="91"/>
+<label x="198.12" y="71.12" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SS" class="0">
@@ -3577,8 +3542,8 @@ Source: AVX .. aphvc.pdf</description>
 <net name="RS" class="0">
 <segment>
 <pinref part="RADIOL" gate="G$1" pin="1"/>
-<wire x1="190.5" y1="78.74" x2="193.04" y2="78.74" width="0.1524" layer="91"/>
-<label x="193.04" y="78.74" size="1.27" layer="95" xref="yes"/>
+<wire x1="195.58" y1="78.74" x2="198.12" y2="78.74" width="0.1524" layer="91"/>
+<label x="198.12" y="78.74" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="RASPIZERO" gate="G$1" pin="!CE0!/GPIO8"/>
@@ -3695,9 +3660,79 @@ Source: AVX .. aphvc.pdf</description>
 <label x="170.18" y="73.66" size="1.27" layer="95" rot="R270" xref="yes"/>
 </segment>
 </net>
+<net name="GND@6" class="0">
+<segment>
+<pinref part="RASPIZERO" gate="G$1" pin="GND@6"/>
+<wire x1="226.06" y1="127" x2="233.68" y2="127" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="GND@7" class="0">
+<segment>
+<pinref part="RASPIZERO" gate="G$1" pin="GND@7"/>
+<wire x1="226.06" y1="121.92" x2="233.68" y2="121.92" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="GND@5" class="0">
+<segment>
+<pinref part="RASPIZERO" gate="G$1" pin="GND@5"/>
+<wire x1="226.06" y1="139.7" x2="233.68" y2="139.7" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="GND@4" class="0">
+<segment>
+<pinref part="RASPIZERO" gate="G$1" pin="GND@4"/>
+<wire x1="233.68" y1="147.32" x2="226.06" y2="147.32" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="GND@8" class="0">
+<segment>
+<pinref part="RASPIZERO" gate="G$1" pin="GND@8"/>
+<wire x1="233.68" y1="157.48" x2="226.06" y2="157.48" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="105,1,58.293,96.52,N$3,,,,,"/>
+<approved hash="105,1,72.39,93.98,N$4,,,,,"/>
+<approved hash="105,1,11.43,86.36,N$5,,,,,"/>
+<approved hash="105,1,88.9,154.94,N$6,,,,,"/>
+<approved hash="105,1,120.65,96.52,N$7,,,,,"/>
+<approved hash="105,1,118.11,195.58,N$8,,,,,"/>
+<approved hash="108,1,86.36,137.16,N$3,,,,,"/>
+<approved hash="108,1,27.94,177.8,N$3,,,,,"/>
+<approved hash="108,1,27.94,96.52,N$3,,,,,"/>
+<approved hash="108,1,58.42,177.8,N$3,,,,,"/>
+<approved hash="108,1,-10.16,93.98,N$4,,,,,"/>
+<approved hash="108,1,154.94,185.42,N$4,,,,,"/>
+<approved hash="108,1,160.02,45.72,N$4,,,,,"/>
+<approved hash="108,1,182.88,45.72,N$4,,,,,"/>
+<approved hash="108,1,246.38,93.98,N$4,,,,,"/>
+<approved hash="108,1,208.28,93.98,N$4,,,,,"/>
+<approved hash="108,1,160.02,93.98,N$4,,,,,"/>
+<approved hash="108,1,154.94,93.98,N$4,,,,,"/>
+<approved hash="108,1,119.126,139.7,N$6,,,,,"/>
+<approved hash="108,1,119.38,170.18,N$6,,,,,"/>
+<approved hash="108,1,30.48,48.26,N$5,,,,,"/>
+<approved hash="108,1,30.48,86.36,N$5,,,,,"/>
+<approved hash="108,1,68.58,48.26,N$5,,,,,"/>
+<approved hash="108,1,68.58,86.36,N$5,,,,,"/>
+<approved hash="108,1,116.84,48.26,N$5,,,,,"/>
+<approved hash="108,1,116.84,86.36,N$5,,,,,"/>
+<approved hash="110,1,88.9,96.52,N$3,N$7,,,,"/>
+<approved hash="109,1,86.36,177.546,N$3,,,,,"/>
+<approved hash="109,1,88.9,177.8,N$3,,,,,"/>
+<approved hash="109,1,88.646,177.8,N$3,,,,,"/>
+<approved hash="110,1,152.4,137.16,N$3,N$7,,,,"/>
+<approved hash="110,1,152.4,137.16,N$3,N$7,,,,"/>
+<approved hash="110,1,152.4,137.16,N$3,N$7,,,,"/>
+<approved hash="110,1,88.646,96.52,N$7,N$3,,,,"/>
+<approved hash="110,1,152.4,137.414,N$7,N$3,,,,"/>
+<approved hash="110,1,152.4,137.414,N$7,N$3,,,,"/>
+<approved hash="110,1,152.146,137.16,N$7,N$3,,,,"/>
+<approved hash="110,1,152.146,137.16,N$7,N$3,,,,"/>
+</errors>
 </schematic>
 </drawing>
 </eagle>
