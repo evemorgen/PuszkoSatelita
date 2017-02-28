@@ -47,9 +47,9 @@ class LoRaBeacon(LoRa):
         #self.setting()
         self.set_mode(MODE.STDBY)
         self.clear_irq_flags(TxDone=1)
-        sys.stdout.flush()
+        #sys.stdout.flush()
         self.tx_counter += 1
-        sys.stdout.write("\rtx #%d" % self.tx_counter)
+        #sys.stdout.write("\rtx #%d" % self.tx_counter)
         sleep(time2sleep)
         self.write_payload(payloadgenerator(
             open('/home/pi/data/radio/current.txt', 'r').read()))
@@ -77,7 +77,7 @@ class LoRaBeacon(LoRa):
 
     def start(self):
         self.setting()
-        sys.stdout.write("\rstart")
+        #sys.stdout.write("\rstart")
         self.tx_counter = 0
         self.write_payload(payloadgenerator(
             "Magnitudo online!"))
