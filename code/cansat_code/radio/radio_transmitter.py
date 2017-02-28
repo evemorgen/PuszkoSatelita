@@ -35,7 +35,7 @@ class LoRaBeacon(LoRa):
         lora.set_bw(7)
         lora.set_spreading_factor(7)
         # cr settings is #-4 when real setting is CR4_#
-        lora.set_coding_rate(1)
+        lora.set_coding_rate(3)
         lora.set_ocp_trim(100)
 
     def __init__(self, verbose=False):
@@ -52,7 +52,7 @@ class LoRaBeacon(LoRa):
         sys.stdout.write("\rtx #%d" % self.tx_counter)
         sleep(time2sleep)
         self.write_payload(payloadgenerator(
-            open('/home/pi/data/radio/current.txt', 'r').read()))
+            open('/home/pi/data/radio/current.txt', 'r').read()+str(self.tx_counter)))
         self.set_mode(MODE.TX)
 
     def on_cad_done(self):
@@ -87,7 +87,7 @@ class LoRaBeacon(LoRa):
 
 
 
-lora = LoRaBeacon(verbose=False)
+lora = LoRaBeacon(verbose=True)
 """
 lora.set_freq(433.8)
 lora.set_preamble(8)
@@ -97,7 +97,7 @@ lora.set_coding_rate(4)
 lora.set_ocp_trim(100)
 #args = parser.parse_args(lora)
 """
-time2sleep = 0.4  # in seconds
+time2sleep = 0  # in seconds
 lora.set_pa_config(pa_select=1)
 assert (lora.get_agc_auto_on() == 1)
 lora.start()
