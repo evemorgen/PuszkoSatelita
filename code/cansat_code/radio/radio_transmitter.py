@@ -4,21 +4,22 @@ from SX127x.LoRaArgumentParser import LoRaArgumentParser
 from SX127x.board_config import BOARD
 
 BOARD.setup()
-#parser = LoRaArgumentParser("JJ CanSat Beacon")
+
+
+# parser = LoRaArgumentParser("JJ CanSat Beacon")
 
 
 def payloadgenerator(payloadstring):
-    payloadlist=[ord(c) for c in payloadstring]
-    checksum=0
+    payloadlist = [ord(c) for c in payloadstring]
+    checksum = 0
     for item in payloadlist:
-        checksum+=item
+        checksum *= item
         checksum %= 1234577
-        item="0x"+str(item)
+        item = "0x" + str(item)
     checksum %= 255
     checksum = int(checksum)
     payloadlist.append(checksum)
     return payloadlist
-
 
 
 class LoRaBeacon(LoRa):
@@ -71,13 +72,14 @@ class LoRaBeacon(LoRa):
         print(self.get_irq_flags())
 
     def start(self):
-        #global args
+        # global args
         sys.stdout.write("\rstart")
         self.tx_counter = 0
         BOARD.led_on()
         while True:
             sleep(0.5)
-            self.write_payload(payloadgenerator("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."))
+            self.write_payload(payloadgenerator(
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."))
             self.set_mode(MODE.TX)
 
 
@@ -91,7 +93,7 @@ lora.set_coding_rate(4)
 lora.set_ocp_trim(100)
 #args = parser.parse_args(lora)
 """
-time2sleep = 0.3   # in seconds
+time2sleep = 0.3  # in seconds
 lora.set_pa_config(pa_select=1)
 assert (lora.get_agc_auto_on() == 1)
 lora.start()
