@@ -19,6 +19,6 @@ W ten sposób czyścimy wszystkie rzeczy związane z GUI i pozwalamy systemowi p
 Dwa ostatnie kroki mają na celu zmniejszenie poboru prądu. Żeby zmiany związane z żarówkami były trwałe dodajemy dwie linie do pliku /boot/config.txt:
 	
 
-	echo "dtparam=act_led_trigger=none" | tee -a "/boot/config.txt"
-	echo "dtparam=act_led_activelow=on" | tee -a "/boot/config.txt"
+		echo "dtparam=act_led_trigger=none" | tee -a "/boot/config.txt"
+		echo "dtparam=act_led_activelow=on" | tee -a "/boot/config.txt"
 
