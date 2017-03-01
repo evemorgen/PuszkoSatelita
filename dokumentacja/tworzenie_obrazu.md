@@ -1,22 +1,24 @@
-Raspbian image preparation
+Przygotowanie obrazu raspbiana
 =
-1. The base system for our CanSat is a Raspbian Jessie image from 2017-01-11 with a kernel version of 4.4. This will be a step by step description of the steps we took to make it more memory efficient.
+1. Za podstawe do naszego systemu będzie służyć Raspbian Jessie wersja z 17-01-11 z jądrem wersji 4.4. Będzie to opis kroków jakie podjęliśmy aby nasza puszka była bardziej wydajna.
 
-2. Our first step is deleting the Graphical Interface server X.org. Using the following commands:
-	
+2. Pierwszym krokiem jest usunięcie środowiska graficznego używając następującego polecenia:
+
 		sudo apt-get remove x11-* --purge
 		sudo apt-get autoremove --purge
-In this way we clean all things related to the GUI and let the system do the cleanup.
-3. After that we disable the HDMI port by adding the following line at the bottom of the /etc/rc.local file:
+W ten sposób czyścimy wszystkie rzeczy związane z GUI i pozwalamy systemowi pozbyć się niepotrzebnych paczek.
 
+3. Następnie wyłączamy port HDMI dodając następującą linię do pliku /etc/rc.local:
+		
 		echo "/usr/bin/tvservice -o" | sudo tee -a  "/etc/rc.local"
-4. The next thing to do is turning off the LED on the board:
+
+4. Potem wyłączamy żarówki LED na płytce:
 
 		echo none | sudo tee "/sys/class/leds/led0/trigger"
-		echo 1 | sudo tee /sys/class/leds/led0/brightness
+		echo 1 | sudo tee "/sys/class/leds/led0/brightness"
+Dwa ostatnie kroki mają na celu zmniejszenie poboru prądu. Żeby zmiany związane z żarówkami były trwałe dodajemy dwie linie do pliku /boot/config.txt:
 	
-	This doesn't make it more memory efficient but saves a little bit of power.
-	To make these changes permanent we append the following lines to /boot/config.txt:
 
-		dtparam=act_led_trigger=none
-		dtparam=act_led_activelow=on
+	echo "dtparam=act_led_trigger=none" | tee -a "/boot/config.txt"
+	echo "dtparam=act_led_activelow=on" | tee -a "/boot/config.txt"
+
