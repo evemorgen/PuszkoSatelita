@@ -1,5 +1,17 @@
 from datetime import datetime
 import time
+import struct
+import array
+
+
+def compress(string):
+    floatlist=string.split(",")
+    floatlist=[float(i) for i in floatlist]
+    x = struct.pack('%sf' % len(floatlist), *floatlist)
+    print len(x)
+    return x
+
+
 
 while True:
     lasttxstamp_file= open('/home/pi/data/radio/last_tx_stamp.txt', 'r')
@@ -26,7 +38,8 @@ while True:
         '/home/pi/data/altimu/' + str(lastaltimu)).readline()
     timedate=datetime.now().strftime('%Y,%m,%d,%H,%M,%S')
     string=txstamp+','+timedate+","+temperature+','+humidity+','+gps+','+altimu
+    string = compress(string)
     current = open('/home/pi/data/radio/current.txt', 'w')
     current.write(string)
     current.close()
-    time.sleep(1)
+    time.sleep(0.5)
