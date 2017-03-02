@@ -43,7 +43,9 @@ def get_gps_data():
 	print(long_sec)
 	print(elev)
 	"""
-	return([lat_deg,lat_min,lat_sec,long_deg,long_min,long_sec,elev,accuracy,datetime])
+	return([lat_deg,lat_min,lat_sec,long_deg,long_min,long_sec,elev,accuracy
+			,datetime
+			])
 def read_gps_data():
 	array=get_gps_data()
 	return(",".join(map(str, array)))
