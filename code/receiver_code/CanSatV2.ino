@@ -5,21 +5,20 @@
 #include <LoRa.h>
 
 int selectSD = 10;
-int slecetSensor = 9;
+int selcetSensor = 9;
 
 File usedFile;
 LPS331 sensor;
 
-String sdError = "SDERROR";
-String sensorError = "SENSORERROR";
-String radioError = "RADIOERROR";
-
-char keys[7];
+String sdError = "{ \"Message type\":\"ERROR\", \"ERROR_TYPE\":\"SDCARD_ERROR\"}";
+String sensorError = "{ \"Message type\":\"ERROR\", \"ERROR_TYPE\":\"SENSOR_ERROR\"}";
+String radioError = "{ \"Message type\":\"ERROR\", \"ERROR_TYPE\":\"RADIO_ERROR\"}";
 
 int fileNumberS = 0;
 int fileNumberR = 0;
 
-unsigned long lastSaveSensor = 0;
+int saveSensorTime = 10000;
+unsigned long lastSaveSensor = millis();
 
 void countFiles(){
   int number = 1;
@@ -66,7 +65,7 @@ void saveData(String inData, byte type){
   usedFile.close();
 }
 
-void saveSensor(){
+void saveAndSendSensor(){
   float pressure = sensor.readPressureMillibars();
   float altitude = sensor.pressureToAltitudeMeters(pressure);
   float temperature = sensor.readTemperatureC();
@@ -80,86 +79,7 @@ void saveSensor(){
   data += ";";
 
   saveData(data, 0);
-
-  //JSON PARSER - ALBO NIE
-}
-
-int charToInt(char in){
-  switch(in){
-    case 0: return 0;
-    case 1: return 1;
-    case 2: return 2;
-    case 3: return 3;
-    case 4: return 4;
-    case 5: return 5;
-    case 6: return 6;
-    case 7: return 7;
-    case 8: return 8;
-    case 9: return 9;
-    default: return 0;
-  }
-}
-
-float stringToFloat(String in){
-  float out;
-  int w = 1;
   
-  for(int i = 0; i < in.length(); i++){
-    if(in[i] == '.'){
-      break;
-    }
-    if(in[i] != '0' && in[i] != '1' && in[i] != '2' && in[i] != '3' && in[i] != '4' && in[i] != '5' && in[i] != '6' && in[i] != '7' && in[i] != '8' && in[i] != '9'){
-      return 0;
-    }
-    w++;
-  }
-
-  for(int i = w+1; i < in.length(); i++){
-    if(in[i] != '0' && in[i] != '1' && in[i] != '2' && in[i] != '3' && in[i] != '4' && in[i] != '5' && in[i] != '6' && in[i] != '7' && in[i] != '8' && in[i] != '9'){
-      return 0;
-    }
-  }
-
-  for(int i = 0; i < in.length(); i++){
-    if(in[i] != '.'){
-        out += (float)charToInt(in[i])*pow(10, w-1);
-    }
-    w--;
-  }
-
-  return out;
-}
-
-float findValue(char key, String data){
-    String sfloat = "";
-    for(int i = 0; i < data.length(); i++){
-      if(data[i] == key){
-        for(int k = i; k < data.length(); k++){
-          if(data[k] == ','){
-            return stringToFloat(sfloat);
-          }
-          sfloat += data[k];
-        }
-        return 0;
-      }
-    }
-    return 0;
-    
-}
-
-void parseAndSend(String data){
-  String out = "{";
-  for(int i = 0; i < keys.size(); i++){
-    if(i != 0){
-      out += ",";
-    }
-    out += "\"";
-    out += keys[i];
-    out += "\":";
-    out += findValue(keys[i], data);
-  }
-  out += "}";
-  Serial.print(out);
 }
 
 void setup() {
@@ -194,13 +114,17 @@ void loop() {
       receivedData += (char)LoRa.read();
     }
 
-    receivedData += "RSSI";
-    receivedData += LoRa.packetRssi();
+    String dataSave = receivedData + "\nRSSI: ";
+    dataSave += LoRa.packetRssi();
     
-    saveData(receivedData, 1);
+    saveData(dataSve, 1);
 
     parseAndSend(receivedData);
   }
+
+  if(lastSaveSensor - millis() > saveSensorTime){
+    lastSaveSensor = millis();
+    saveAndSendSensor();
+  }
   
-  saveSensor();
 }
