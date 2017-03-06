@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from SHT31 import *
 from datetime import datetime
 import time
