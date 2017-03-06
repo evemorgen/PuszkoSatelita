@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from gps import read_gps_data
 from datetime import datetime
 import time
