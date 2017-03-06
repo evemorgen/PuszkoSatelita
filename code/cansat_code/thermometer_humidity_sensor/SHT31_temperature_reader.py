@@ -14,4 +14,4 @@ while True:
         file_last_read.write(str(read))
         file_datetable.write(str(read)+','+datetime.now().strftime('%Y,%m,%d,%H,%M,%S')+'\n')
 ###     uncomment next line for less data flow  ###
-#       time.sleep(1)
+       time.sleep(1)
