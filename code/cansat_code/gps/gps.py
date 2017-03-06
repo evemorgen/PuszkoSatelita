@@ -1,11 +1,11 @@
 from subprocess import check_output
 #import numpy as np
 def grab_gps_array():
-	gps_line = check_output(['./grab_gps_line.sh'])
+	gps_line = check_output(['/home/pi/PuszkoSatelita/code/cansat_code/gps/grab_gps_line.sh'])
 	gps_array = gps_line.split(',')
 	return (gps_array)
 def grab_datetime_array():
-	datetime_line = check_output(['./grab_datetime_line.sh'])
+	datetime_line = check_output(['/home/pi/PuszkoSatelita/code/cansat_code/gps/grab_datetime_line.sh'])
 	datetime_array = datetime_line.split(',')
 	return (datetime_array)
 def get_gps_data():
