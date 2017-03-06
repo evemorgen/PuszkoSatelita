@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from read_altimu import read_altimu
 from datetime import datetime
 import time
