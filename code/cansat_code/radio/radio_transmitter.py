@@ -1,3 +1,6 @@
+#!/usr/bin/python
+
+
 from time import sleep
 from SX127x.LoRa import *
 from SX127x.LoRaArgumentParser import LoRaArgumentParser
