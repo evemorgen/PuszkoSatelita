@@ -7,8 +7,9 @@ import array
 
 
 def compress(string):
-    floatlist=string.split(",")
-    floatlist=[float(i) for i in floatlist]
+    string=string.split(",")
+    print string
+    floatlist=[float(i) for i in string]
     x = struct.pack('%sf' % len(floatlist), *floatlist)
     print len(x)
     return x
@@ -17,9 +18,7 @@ def compress(string):
 
 while True:
     lasttxstamp_file= open('/home/pi/data/radio/last_tx_stamp.txt', 'r')
-    lasttxstamp=lasttxstamp_file.readline()
-    lasttxstamp_file = open('/home/pi/data/radio/last_tx_stamp.txt', 'w')
-    lasttxstamp_file.write(str(int(lasttxstamp)+1))
+    lasttxstamp=lasttxstamp_file.read()
     lasttxstamp_file.close()
     txstamp=(str(int(lasttxstamp) + 1))
     lasttemperature = open(
@@ -48,4 +47,7 @@ while True:
     current = open('/home/pi/data/radio/current.txt', 'w')
     current.write(string)
     current.close()
+    lasttxstamp_file = open('/home/pi/data/radio/last_tx_stamp.txt', 'w')
+    lasttxstamp_file.write(str(int(lasttxstamp) + 1))
+    lasttxstamp_file.close()
     time.sleep(0.5)
