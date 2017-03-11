@@ -31,7 +31,7 @@ class BOARD:
         This is the Raspberry Pi board with one LED and a modtronix inAir9B
     """
     # Note that the BCOM numbering for the GPIOs is used.
-    DIO0 = 22   # RaspPi GPIO 22
+    DIO0 = 19   # RaspPi GPIO 19
     DIO1 = 23   # RaspPi GPIO 23
     DIO2 = 24   # RaspPi GPIO 24
     DIO3 = 25   # RaspPi GPIO 25
