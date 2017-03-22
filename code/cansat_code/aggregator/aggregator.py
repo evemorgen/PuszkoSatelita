@@ -37,12 +37,20 @@ while True:
         '/home/pi/data/altimu/last_read_number.txt', 'r').readline()
     altimu = open(
         '/home/pi/data/altimu/' + str(lastaltimu)).readline()
+    lastvoltage0 = open(
+        '/home/pi/data/voltage0/last_read_number.txt', 'r').readline()
+    voltage0 = open(
+        '/home/pi/data/voltage0/' + str(lastvoltage0)).readline()
+    lastvoltage1 = open(
+        '/home/pi/data/voltage1/last_read_number.txt', 'r').readline()
+    voltage1 = open(
+        '/home/pi/data/voltage1/' + str(lastvoltage1)).readline()
     timedate=str(datetime.now().strftime('%Y,%m,%d,%H,%M,%S'))
     date=timedate
     date = date.split(",")
     date=float(date[2])*86400+float(date[3])*3600+float(date[4])*60+float(date[5])
     date=str(date)
-    string=txstamp+','+date+","+temperature+','+humidity+','+gps+','+altimu
+    string=txstamp+','+date+","+temperature+','+humidity+','+gps+','+altimu+','+voltage0+','+voltage1
     string = compress(string)
     current = open('/home/pi/data/radio/current.txt', 'w')
     current.write(string)
