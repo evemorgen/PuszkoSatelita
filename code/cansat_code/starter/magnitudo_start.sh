@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sudo pigpiod
+daemon -r ~/PuszkoSatelita/code/cansat_code/gps/gps_service.py
 daemon -r ~/PuszkoSatelita/code/cansat_code/gps/gps_reader.py
 daemon -r ~/PuszkoSatelita/code/cansat_code/altimu/altimu_reader.py
 daemon -r ~/PuszkoSatelita/code/cansat_code/thermometer_humidity_sensor/SHT31_humidity_reader.py
