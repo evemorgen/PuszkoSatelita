@@ -103,6 +103,7 @@ class LPS25H(I2C):
 
     ## Private methods
     def __init__(self, busId = 1):
+        # type: (object) -> object
         """ Set up I2C connection and initialize some flags and values.
         """
         super(LPS25H, self).__init__(busId)
