@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+"""
 import pigpio
 
 RX=5
@@ -24,3 +24,4 @@ try:
 except:
         pi.bb_serial_read_close(RX)
         pi.stop()
+"""
