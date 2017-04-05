@@ -19,7 +19,4 @@ echo -n "0" > $d/0
 done
 echo -n "0,0,0,0,0,0,0,0,0,0,0" > /home/pi/data/altimu/0
 echo -n "0,0,0,0,0,0,0,0,0" > /home/pi/data/gps/0
-
-
-
-
+echo -n "0" > /home/pi/data/radio/last_tx_stamp.txt
