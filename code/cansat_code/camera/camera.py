@@ -3,6 +3,7 @@
 from picamera import PiCamera
 from time import sleep
 camera = PiCamera()
+camera.resolution = (3280, 2464)
 
 while True:
     file_last_read = open('/home/pi/data/camera/last_read_number.txt', 'r+')
