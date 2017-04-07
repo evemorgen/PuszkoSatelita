@@ -158,7 +158,7 @@ class AltIMU(LIS3MDL, LPS25H, LSM6DS33):
         # dimensions is requested make a quick turnaround
         #if not (self.accelerometer and self.gyroscope and (x or y or z)):
         #    return (None, None, None)
-        
+
         # Get gyroscope rotation rates and accelerometer angles
         gyrRates = self.getGyroRotationRates()
         accelAngles = self.getAccelerometerAngles()
