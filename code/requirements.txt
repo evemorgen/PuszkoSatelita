@@ -1,0 +1,11 @@
+Adafruit-ADS1x15==1.0.2
+Adafruit-GPIO==1.0.1
+Adafruit-PureIO==0.2.1
+appdirs==1.4.3
+packaging==16.8
+picamera==1.13
+pyparsing==2.2.0
+RPi.GPIO==0.6.3
+sht-sensor==16.12.1
+six==1.10.0
+spidev==3.2

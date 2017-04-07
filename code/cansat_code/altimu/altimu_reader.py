@@ -6,12 +6,11 @@ import time
 
 file_datetable = open('/home/pi/data/altimu/datetable.txt', 'a')
 while True:
-    file_last_read = open('/home/pi/data/altimu/last_read_number.txt', 'r+')
-    last_read = int(file_last_read.read())
-    file_last_read.close()
-    read = last_read + 1
+    last_read = open('/home/pi/data/altimu/last_read_number.txt', 'r').readline()
+    read = int(last_read) + 1
     file_output = open('/home/pi/data/altimu/' + str(read), 'w')
     file_output.write(str(read_altimu()))
+    file_output.close()
     file_last_read = open('/home/pi/data/altimu/last_read_number.txt', 'w')
     file_last_read.write(str(read))
     file_last_read.close()
