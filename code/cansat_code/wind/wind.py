@@ -5,7 +5,7 @@ GAIN = 1
 DATARATE = 128
 ENC_NUM = 3 #may be 2 or 3
 SAMPLE_SIZE = 5
-BORDER_VALUE = 20000
+BORDER_VALUE = 3200
 
 def read_state():
     value = adc.read_adc(ENC_NUM, gain=GAIN, data_rate=DATARATE)
@@ -18,6 +18,7 @@ def read_state():
 def read_time():
     primary_time=time.time()
     primary=read_state()
+    end_time = time.time()
     while read_state() == primary:
         end_time=time.time()
     return end_time-primary_time
