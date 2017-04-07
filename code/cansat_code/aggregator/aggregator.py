@@ -64,7 +64,7 @@ while True:
     timedate=str(datetime.now().strftime('%Y,%m,%d,%H,%M,%S'))
     date=timedate
     date = date.split(",")
-    date=float(date[2])*86400+float(date[3])*3600+float(date[4])*60+float(date[5])
+    date=float(date[3])*3600+float(date[4])*60+float(date[5])
     date=str(date)
     string=txstamp+','+date+","+temperature+','+humidity+','+gps+','+altimu+','+voltage0+','+voltage1+','+wind
     logging.info(string)
