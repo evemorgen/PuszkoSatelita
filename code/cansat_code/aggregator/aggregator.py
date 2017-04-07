@@ -28,15 +28,15 @@ while True:
         lasttxstamp=lasttxstamp_file.read()
         lasttxstamp_file.close()
         txstamp=(str(int(lasttxstamp) + 1))
-    except (all()):
-        txstamp = -1
+    except:
+        txstamp = "-1"
     try:
         lasttemperature = reader("temperature")
         logging.info("last_temp_read"+lasttemperature)
         temperature = str(round(float(open(
             '/home/pi/data/temperature/'+str(lasttemperature)).readline()),2))
-    except (all()):
-        temperature = -1
+    except:
+        temperature = "-275"
     lasthumidity = reader("humidity")
     logging.info("last_hum_read %s", lasthumidity)
     humidity = str(round(float(open(
