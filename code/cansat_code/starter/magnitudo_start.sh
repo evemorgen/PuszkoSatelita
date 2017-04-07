@@ -1,6 +1,5 @@
 #!/bin/sh
 
-#sudo pigpiod
 daemon -r ~/PuszkoSatelita/code/cansat_code/camera/camera.py
 daemon -r ~/PuszkoSatelita/code/cansat_code/gps/gps_reader.py
 daemon -r ~/PuszkoSatelita/code/cansat_code/altimu/altimu_reader.py
