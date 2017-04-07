@@ -9,8 +9,11 @@ def reader(name):
     if last=="":
         lastfile=open('/home/pi/data/'+name+'/last_read_number.txt', 'w')
         lastfile.write("50000")
-        logging.info("fix applied to "+name)
         lastfile.close()
+        file5k = open('/home/pi/data/' + name + '/50000', 'w')
+        file5k.write("0")
+        file5k.close()
+        logging.info("fix applied to " + name)
         return 1
     return last
 
@@ -22,7 +25,7 @@ def compress(string):
     print len(x)
     return x
 formatter = "[%(asctime)s %(funcName)s %(process)d] %(message)s"
-logging.basicConfig(level=logging.INFO, format=formatter)
+logging.basicConfig(level=logging.INFO, format=formatter, filename="/home/pi/data/agg_log.log")
 
 
 while True:
