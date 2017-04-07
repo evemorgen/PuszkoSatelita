@@ -33,7 +33,7 @@ class LoRaBeacon(LoRa):
 
     def setting(self):
         self.set_mode(MODE.STDBY)
-        lora.set_freq(433.8)
+        lora.set_freq(433.6)
         lora.set_preamble(int(8))
         lora.set_bw(7)
         lora.set_spreading_factor(7)
