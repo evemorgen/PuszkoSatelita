@@ -25,7 +25,16 @@ def read_time():
 
 
 def read_frequency():
-    return 1/read_time()
+    primary_time = time.time()
+    primary = read_state()
+    end_time = primary_time+1
+    counter = 0
+    while time.time()<end_time:
+        current = read_state()
+        if current != primary:
+            counter += 1
+            primary = current
+    return counter
 
 
 def read_mean_frequency():
